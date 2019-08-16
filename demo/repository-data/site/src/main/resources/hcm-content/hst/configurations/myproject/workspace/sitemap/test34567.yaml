@@ -1,0 +1,5 @@
+/hst:hst/hst:configurations/myproject/hst:workspace/hst:sitemap/test34567:
+  jcr:primaryType: hst:sitemapitem
+  hst:componentconfigurationid: hst:pages/test34567-contentpage
+  hst:lastmodified: 2019-08-15T14:02:32.917+02:00
+  hst:pagetitle: test34567

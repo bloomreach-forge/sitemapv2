@@ -1,0 +1,127 @@
+package org.onehippo.forge.sitemapv2.builder;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.function.Function;
+
+import javax.jcr.RepositoryException;
+
+import com.google.common.collect.Streams;
+
+import org.apache.commons.lang.StringUtils;
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.HstQueryResult;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
+import org.hippoecm.hst.content.beans.query.filter.Filter;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
+import org.hippoecm.hst.content.beans.standard.HippoDocument;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
+import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
+import org.onehippo.forge.sitemapv2.components.model.Url;
+import org.onehippo.forge.sitemapv2.generator.SitemapGenerator;
+import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
+import org.onehippo.forge.sitemapv2.util.MatcherUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
+
+public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
+
+    private static final int LIMIT_MAX = 1000;
+    private static final String PUBLICTION_DATE_PROPERTY = "hippostdpubwf:publicationDate";
+    private static final Logger log = LoggerFactory.getLogger(DefaultDocumentSitemapBuilder.class);
+
+    @Override
+    public void build(final HstRequest request, final DefaultSitemapFeedInfo componentInfo, final SitemapGenerator generator) {
+        HstRequestContext context = request.getRequestContext();
+        HstQueryBuilder hstQueryBuilder = HstQueryBuilder
+                .create(context.getSiteContentBaseBean())
+                .limit(componentInfo.getQueryLimit() > getLimit() ? getLimit() : componentInfo.getQueryLimit())
+                .offset(componentInfo.getQueryOffset());
+
+        if (StringUtils.isNotEmpty(componentInfo.getQueryPrimaryTypes())) {
+            hstQueryBuilder.ofPrimaryTypes(MatcherUtils.getCommaSeparatedValues(componentInfo.getQueryPrimaryTypes()));
+        }
+
+        if (StringUtils.isNotEmpty(componentInfo.getQueryOfTypes())) {
+            hstQueryBuilder.ofTypes(MatcherUtils.getCommaSeparatedValues(componentInfo.getQueryOfTypes()));
+        } else if (StringUtils.isEmpty(componentInfo.getQueryOfTypes()) && StringUtils.isEmpty(componentInfo.getQueryPrimaryTypes())) {
+            //default set hippo document
+            hstQueryBuilder.ofTypes(HippoDocument.class);
+        }
+
+        if (StringUtils.isEmpty(componentInfo.getSortField())) {
+            hstQueryBuilder.orderBy(HstQueryBuilder.Order.fromString(componentInfo.getSortOrder()), componentInfo.getSortField());
+        }
+
+        if (StringUtils.isNotEmpty(componentInfo.getQueryNotPrimaryTypes())) {
+            String[] queryNotPrimaryTypes = MatcherUtils.getCommaSeparatedValues(componentInfo.getQueryNotPrimaryTypes());
+            Arrays.stream(queryNotPrimaryTypes).forEach(primaryType -> hstQueryBuilder.where(constraint("jcr:primaryType").notEqualTo(primaryType)));
+        }
+
+        try {
+            final HstQuery query = hstQueryBuilder.build();
+
+            if (StringUtils.isNotEmpty(componentInfo.getQueryCustomJcrExpression())) {
+                Filter queryFilter = (Filter)query.getFilter();
+                queryFilter.addJCRExpression(componentInfo.getQueryCustomJcrExpression());
+            }
+
+            final HstQueryResult result = query.execute();
+            final int totalSize = result.getTotalSize();
+            if (totalSize > getLimit()) {
+                log.warn("total size of query is bigger then the limit, please update the max limit" +
+                        " or create an sitemap index with additional sitemap.xml resources");
+            }
+            // Get site map items for each bean of this mount
+            final HippoBeanIterator hippoBeans = result.getHippoBeans();
+
+            Streams.stream(hippoBeans)
+                    .map(getUrlMapper(context, componentInfo))
+                    .forEach(generator::addUrl);
+        } catch (QueryException e) {
+            log.error("A QueryException occurred with message: {}.\n See debug log for more details.", e.getMessage());
+            log.debug("A QueryException occurred: ", e);
+        }
+    }
+
+
+    @SuppressWarnings("Duplicates")
+    protected Function<HippoBean, Url> getUrlMapper(final HstRequestContext context, final DefaultSitemapFeedInfo componentInfo) {
+        return bean -> {
+            HstLink hstLink = context.getHstLinkCreator().createCanonical(bean.getNode(), context);
+            if (!hstLink.isNotFound()) {
+                Url url = new Url();
+                String loc = hstLink.toUrlForm(context, true);
+                url.setLoc(loc);
+                try {
+                    if (bean.getNode().hasProperty(PUBLICTION_DATE_PROPERTY)) {
+                        Calendar lastMod = bean.getSingleProperty(PUBLICTION_DATE_PROPERTY);
+                        url.setLastmod(lastMod);
+                    }
+                } catch (RepositoryException e) {
+                    log.error("error while trying to retrieve the last publication date of document while creating sitemap.xml", e);
+                }
+                if (StringUtils.isNotEmpty(componentInfo.getUrlChangeFrequency())) {
+                    url.setChangeFrequency(ChangeFrequency.valueOf(componentInfo.getUrlChangeFrequency()));
+                }
+                if (StringUtils.isNotEmpty(componentInfo.getUrlPriority())) {
+                    url.setPriority(new BigDecimal(componentInfo.getUrlPriority()));
+                }
+                return url;
+            }
+            return null;
+        };
+    }
+
+    protected int getLimit() {
+        return LIMIT_MAX;
+    }
+}

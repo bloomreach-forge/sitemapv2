@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap.xml:
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-feed-cached-seocomponent

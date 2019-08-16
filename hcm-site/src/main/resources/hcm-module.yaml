@@ -1,0 +1,5 @@
+group: hippo-cms
+project:
+    name: hippo-plugin-sitemapv2
+    after: hippo-site-toolkit
+module: hippo-plugin-sitemapv2-content
