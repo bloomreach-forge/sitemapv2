@@ -17,7 +17,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 5a6e1136-dea0-4927-9130-9ce0a47b0189
       hippo:name: Hippo Author
-      hippo:versionHistory: 55a3e821-0c61-4dda-bf20-081a7b4cf5eb
+      hippo:versionHistory: fadad034-ed7b-4ccb-a2cb-746aec1992cc
       /hippo-author[1]:
         jcr:primaryType: myproject:author
         jcr:mixinTypes: ['mix:referenceable']
@@ -27,9 +27,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2014-02-27T16:32:00+01:00
-        hippostdpubwf:lastModificationDate: 2019-08-16T13:28:08.115+02:00
+        hippostdpubwf:lastModificationDate: 2019-08-16T16:31:25.809+02:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2019-08-16T13:28:10.004+02:00
+        hippostdpubwf:publicationDate: 2019-08-16T16:31:27.524+02:00
         hippotranslation:id: 8460be42-bd2f-49cc-b430-8ccf8e6e8b89
         hippotranslation:locale: en
         myproject:fullname: Hippo Author
@@ -72,7 +72,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2014-02-27T16:32:00+01:00
-        hippostdpubwf:lastModificationDate: 2019-08-16T13:28:08.115+02:00
+        hippostdpubwf:lastModificationDate: 2019-08-16T16:31:25.809+02:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 8460be42-bd2f-49cc-b430-8ccf8e6e8b89
         hippotranslation:locale: en
@@ -116,7 +116,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2014-02-27T16:32:00+01:00
-        hippostdpubwf:lastModificationDate: 2019-08-16T13:28:06.143+02:00
+        hippostdpubwf:lastModificationDate: 2019-08-16T16:31:23.474+02:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 8460be42-bd2f-49cc-b430-8ccf8e6e8b89
         hippotranslation:locale: en

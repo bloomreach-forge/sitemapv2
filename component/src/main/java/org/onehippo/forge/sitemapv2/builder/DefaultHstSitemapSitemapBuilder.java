@@ -104,7 +104,6 @@ public class DefaultHstSitemapSitemapBuilder implements SitemapBuilder<DefaultSi
                     }
                 }
 
-
                 if (StringUtils.isNotEmpty(componentInfo.getUrlChangeFrequency())) {
                     url.setChangeFrequency(ChangeFrequency.valueOf(componentInfo.getUrlChangeFrequency()));
                 }

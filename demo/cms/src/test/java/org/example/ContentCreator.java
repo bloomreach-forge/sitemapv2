@@ -21,8 +21,15 @@ import org.hippoecm.repository.api.WorkflowException;
 import org.hippoecm.repository.api.WorkflowManager;
 import org.hippoecm.repository.util.JcrUtils;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import static org.example.BlogsDocumentCreation.createBlogDocuments;
+import static org.example.ContentDocumentCreation.createContentDocuments;
+import static org.example.EventDocumentCreation.createEventsDocuments;
+import static org.example.NewsDocumentCreation.createNewsDocuments;
+
+@Ignore
 public class ContentCreator {
 
     private Session session;
@@ -66,14 +73,15 @@ public class ContentCreator {
         this.workflowManager = ((HippoWorkspace)session.getWorkspace()).getWorkflowManager();
     }
 
+    @Ignore
     @Test
     public void testDocumentCreation() throws RepositoryException, WorkflowException, RemoteException {
-//        createNewsDocuments(session, 2000);
-//        createContentDocuments(session, 2000);
-//        createEventsDocuments(session, 2000);
-//        createBlogDocuments(session, 2000);
+        createNewsDocuments(session, 1000);
+        createContentDocuments(session, 1000);
+        createEventsDocuments(session, 1000);
+        createBlogDocuments(session, 1000);
 
-        createLandingPages(1000);
+        createLandingPages(100);
         createSubLandingPages(2000);
     }
 
