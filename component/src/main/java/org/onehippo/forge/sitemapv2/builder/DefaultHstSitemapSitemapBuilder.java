@@ -93,14 +93,18 @@ public class DefaultHstSitemapSitemapBuilder implements SitemapBuilder<DefaultSi
                         .getComponentsConfiguration()
                         .getComponentConfiguration(siteMapItem.getComponentConfigurationId());
 
-                Optional<HstComponentConfiguration> latest = hstComponentConfiguration.flattened()
-                        .filter(componentConfiguration -> componentConfiguration.getLastModified() != null)
-                        .max(Comparator.comparing(HstComponentConfiguration::getLastModified));
+                if (hstComponentConfiguration != null) {
+                    Optional<HstComponentConfiguration> latest = hstComponentConfiguration.flattened()
+                            .filter(componentConfiguration -> componentConfiguration.getLastModified() != null)
+                            .max(Comparator.comparing(HstComponentConfiguration::getLastModified));
 
-                if (latest.isPresent()) {
-                    Calendar lastModified = latest.get().getLastModified();
-                    url.setLastmod(lastModified);
+                    if (latest.isPresent()) {
+                        Calendar lastModified = latest.get().getLastModified();
+                        url.setLastmod(lastModified);
+                    }
                 }
+
+
                 if (StringUtils.isNotEmpty(componentInfo.getUrlChangeFrequency())) {
                     url.setChangeFrequency(ChangeFrequency.valueOf(componentInfo.getUrlChangeFrequency()));
                 }
