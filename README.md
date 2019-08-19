@@ -1,25 +1,17 @@
-## Component Configuration
+# Installation
 
-The component which are set on the hst:componentconfigurationid of the sitemap.xml sitemap items have several available component properties available. Documentation also available: `org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo`
+# Configuration
 
-Any feed implementing `org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed` will have the following properties available:
 
-| property | use | default |
-|--|--|--|
-| query-limit  | set a limit on the document feed query, maximum value is 1000  | 200 |
-| query-offset | set an offset on the document feed query. | 0
-| query-ofTypes | filter query where subtypes are included. |
-| query-primaryTypes | filter query where specific primary types are included, but subtypes are ***not*** included |
-| query-notPrimaryTypes | filter query where specific primary types are not included |
-| query-customJcrExpression | filter query by adding specific jcr expression. **Note:** be careful that the query is not intensive on the repository
-| query-sortOrder | Order on how to sort the query | Descending
-| query-sortField | Field on how to sort the query |
-| url-changeFrequency | URL priority in the sitemap feed i.e. 0.1, 0.2 ... 0.9 and 1.0 |
-| url-changeFrequency | URL frequency in the sitemap feed i.e. ALWAYS, HOURLY, DAILY, WEEKLY, MONTHLY, YEARLY, NEVER |
-| cache-enabled | Enable caching | false
-| cache-maxSize | Specifies the maximum number of entries the cache may contain. Increase if there are more endpoints and more channels | 1
-| cache-expireAfterAccessDuration | Specifies that each entry should be automatically removed from the cache once a fixed duration has elapsed after the entry's creation, the most recent replacement of its value, or its last access. | 1
-| cache-expireAfterAccessTimeUnit | i.e. SECONDS, MINUTES, DAYS, MONTHS.. (See java.util.concurrent.TimeUnit) | DAYS
+OOTB the following sitemap items are made available:
+
+- abc
+- def
+
+OOTB the following components are made available:
+
+- 123
+- 456
 
 
 ## Guideline for configuring the Sitemap XML sitemap items  
@@ -104,3 +96,34 @@ Use the sitemap index sitemap item.
 	 - configure if necessary  `sitemap-document-_default_.xml` (used for pagination of all document URLs)
 		 - Update the limit and apply caching if necessary
 	 - configure if necessary `sitemap-pages.xml` (used for pages)
+
+## Component Configuration
+
+The component which are set on the `hst:componentconfigurationid` of the sitemap.xml sitemap items have several available component properties available. Documentation also available: `org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo`
+
+Any feed implementing `org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed` will have the following properties available:
+
+| property | use | default |
+|--|--|--|
+| query-limit  | set a limit on the document feed query, maximum value is 1000  | 200 |
+| query-offset | set an offset on the document feed query. | 0
+| query-ofTypes | filter query where subtypes are included. |
+| query-primaryTypes | filter query where specific primary types are included, but subtypes are ***not*** included |
+| query-notPrimaryTypes | filter query where specific primary types are not included |
+| query-customJcrExpression | filter query by adding specific jcr expression. **Note:** be careful that the query is not intensive on the repository
+| query-sortOrder | Order on how to sort the query | Descending
+| query-sortField | Field on how to sort the query |
+| url-changeFrequency | URL priority in the sitemap feed i.e. 0.1, 0.2 ... 0.9 and 1.0 |
+| url-changeFrequency | URL frequency in the sitemap feed i.e. ALWAYS, HOURLY, DAILY, WEEKLY, MONTHLY, YEARLY, NEVER |
+| cache-enabled | Enable caching | false
+| cache-maxSize | Specifies the maximum number of entries the cache may contain. Increase if there are more endpoints and more channels | 1
+| cache-expireAfterAccessDuration | Specifies that each entry should be automatically removed from the cache once a fixed duration has elapsed after the entry's creation, the most recent replacement of its value, or its last access. | 1
+| cache-expireAfterAccessTimeUnit | i.e. SECONDS, MINUTES, DAYS, MONTHS.. (See java.util.concurrent.TimeUnit) | DAYS
+
+
+
+# Extending
+
+See demo project for examples on extending. In the demo project there is a case implemented where it will check a specific component and property set on a landing page to exclude it from the sitemap xml. In the demo project there is also an example of excluding document types from the feed but also properties on a document (see author document type, filtered if a boolean is checked).
+
+All extensions in the demo are available: `org.example.component.*`
