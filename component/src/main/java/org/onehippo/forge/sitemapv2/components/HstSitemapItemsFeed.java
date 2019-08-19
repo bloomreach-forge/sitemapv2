@@ -9,28 +9,16 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder;
 import org.onehippo.forge.sitemapv2.builder.DefaultHstSitemapSitemapBuilder;
 import org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-/**
- * The default and most simplest sitemap feed. Used for Small websites and/or local development.
- * It will iterate through sitemap items and find corresponding pages (inside and outside of the workspace)
- * and it will search documents and will list all canonical URLs.
- */
 @ParametersInfo(type = DefaultSitemapFeedInfo.class)
-public class DefaultSitemapFeed extends AbstractSitemapFeed {
+public class HstSitemapItemsFeed extends AbstractSitemapFeed {
 
-    //Builder for document
-    private static final SitemapBuilder<DefaultSitemapFeedInfo> DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentSitemapBuilder();
     //Builder for hst sitemap items inside and outside of workspace
     private static final SitemapBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultHstSitemapSitemapBuilder();
-    //collected list of builders and order
-    private static final Set<SitemapBuilder> DEFAULT_BUILDERS = Sets.newHashSet(DOCUMENT_SITEMAP_BUILDER, HST_SITEMAP_SITEMAP_BUILDER);
-    private static Logger log = LoggerFactory.getLogger(DefaultSitemapFeed.class);
+    private static final Set<SitemapBuilder> HST_SITEMAP_BUILDER = Sets.newHashSet(HST_SITEMAP_SITEMAP_BUILDER);
 
     @SuppressWarnings("Duplicates")
     @Override
@@ -38,8 +26,12 @@ public class DefaultSitemapFeed extends AbstractSitemapFeed {
         super.doBeforeRender(request, response);
     }
 
+    /**
+     * available for override in sub class to add or replace default builders
+     *
+     * @return
+     */
     protected Set<SitemapBuilder> getBuilders() {
-        return DEFAULT_BUILDERS;
+        return HST_SITEMAP_BUILDER;
     }
-
 }

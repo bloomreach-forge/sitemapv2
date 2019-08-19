@@ -14,27 +14,27 @@ import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 
 import org.onehippo.forge.sitemapv2.components.model.SiteMapCharacterEscapeHandler;
-import org.onehippo.forge.sitemapv2.components.model.Url;
-import org.onehippo.forge.sitemapv2.components.model.Urlset;
+import org.onehippo.forge.sitemapv2.components.model.sitemapindex.SitemapIndex;
+import org.onehippo.forge.sitemapv2.components.model.sitemapindex.TSitemap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class SitemapGenerator {
+public class SitemapIndexGenerator {
 
-    private static final int MAX_LIMIT = 10000;
+    private static final int MAX_LIMIT = 1000;
 
-    private static final Logger log = LoggerFactory.getLogger(SitemapGenerator.class);
-    private final Urlset urls;
+    private static final Logger log = LoggerFactory.getLogger(SitemapIndexGenerator.class);
+    private final SitemapIndex index;
 
-    public SitemapGenerator() {
-        this.urls = new Urlset();
+    public SitemapIndexGenerator() {
+        this.index = new SitemapIndex();
     }
 
     @SuppressWarnings("Duplicates")
-    public static String toString(final Urlset urls) {
+    public static String toString(final SitemapIndex index) {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            JAXBContext jc = JAXBContext.newInstance(Urlset.class, Url.class);
+            JAXBContext jc = JAXBContext.newInstance(SitemapIndex.class, TSitemap.class);
             Marshaller m = jc.createMarshaller();
 
             TransformerHandler handler = ((SAXTransformerFactory)SAXTransformerFactory.newInstance()).newTransformerHandler();
@@ -45,7 +45,7 @@ public class SitemapGenerator {
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", Integer.toString(2));
             handler.setResult(new StreamResult(out));
 
-            m.marshal(urls, new SiteMapCharacterEscapeHandler(handler));
+            m.marshal(index, new SiteMapCharacterEscapeHandler(handler));
             return out.toString();
         } catch (JAXBException | TransformerConfigurationException | IOException e) {
             throw new IllegalStateException("Cannot marshal the Urlset to an XML string", e);
@@ -53,19 +53,19 @@ public class SitemapGenerator {
     }
 
     public int getSize() {
-        return urls.getUrls().size();
+        return index.getSitemap().size();
     }
 
-    public String getSitemap() {
+    @SuppressWarnings("Duplicates")
+    public String getSitemapIndex() {
         int size = getSize();
         if (size > MAX_LIMIT) {
-            log.warn("Sitemap size exceeds the limit of " + MAX_LIMIT);
-            log.warn("Please use an index sitemap");
+            log.warn("Sitemapindex size exceeds the limit of " + MAX_LIMIT);
         }
-        return toString(urls);
+        return toString(index);
     }
 
-    public boolean addUrl(Url url) {
-        return urls.add(url);
+    public boolean addSitemapUrl(TSitemap sitemap) {
+        return index.getSitemap().add(sitemap);
     }
 }

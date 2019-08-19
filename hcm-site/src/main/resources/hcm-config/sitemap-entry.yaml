@@ -2,5 +2,21 @@ definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap.xml:
       jcr:primaryType: hst:sitemapitem
-      hst:componentconfigurationid: hst:components/forge-sitemapv2-feed
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-default-feed
       hst:hiddeninchannelmanager: true
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-index.xml:
+      jcr:primaryType: hst:sitemapitem
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-default-index-feed
+      hst:hiddeninchannelmanager: true
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-pages.xml:
+      jcr:primaryType: hst:sitemapitem
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-page-feed
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-pages
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-document-_default_.xml:
+      jcr:primaryType: hst:sitemapitem
+      hst:componentconfigurationid: hst:components/forge-sitemapv2-document-feed
+      hst:hiddeninchannelmanager: true
+      hst:parameternames: [query-offset]
+      hst:parametervalues: ['${1}']
+      hst:refId: sitemap-document-offset

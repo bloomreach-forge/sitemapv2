@@ -1,7 +1,6 @@
 package org.onehippo.forge.sitemapv2.builder;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.Function;
 
@@ -12,25 +11,20 @@ import com.google.common.collect.Streams;
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
-import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
-import org.hippoecm.hst.content.beans.query.filter.Filter;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
-import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
+import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
 import org.onehippo.forge.sitemapv2.components.model.Url;
 import org.onehippo.forge.sitemapv2.generator.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
-import org.onehippo.forge.sitemapv2.util.MatcherUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 
 public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
 
@@ -40,39 +34,9 @@ public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSite
 
     @Override
     public void build(final HstRequest request, final DefaultSitemapFeedInfo componentInfo, final SitemapGenerator generator) {
-        HstRequestContext context = request.getRequestContext();
-        HstQueryBuilder hstQueryBuilder = HstQueryBuilder
-                .create(context.getSiteContentBaseBean())
-                .limit(componentInfo.getQueryLimit() > getLimit() ? getLimit() : componentInfo.getQueryLimit())
-                .offset(componentInfo.getQueryOffset());
-
-        if (StringUtils.isNotEmpty(componentInfo.getQueryPrimaryTypes())) {
-            hstQueryBuilder.ofPrimaryTypes(MatcherUtils.getCommaSeparatedValues(componentInfo.getQueryPrimaryTypes()));
-        }
-
-        if (StringUtils.isNotEmpty(componentInfo.getQueryOfTypes())) {
-            hstQueryBuilder.ofTypes(MatcherUtils.getCommaSeparatedValues(componentInfo.getQueryOfTypes()));
-        } else if (StringUtils.isEmpty(componentInfo.getQueryOfTypes()) && StringUtils.isEmpty(componentInfo.getQueryPrimaryTypes())) {
-            //default set hippo document
-            hstQueryBuilder.ofTypes(HippoDocument.class);
-        }
-
-        if (StringUtils.isEmpty(componentInfo.getSortField())) {
-            hstQueryBuilder.orderBy(HstQueryBuilder.Order.fromString(componentInfo.getSortOrder()), componentInfo.getSortField());
-        }
-
-        if (StringUtils.isNotEmpty(componentInfo.getQueryNotPrimaryTypes())) {
-            String[] queryNotPrimaryTypes = MatcherUtils.getCommaSeparatedValues(componentInfo.getQueryNotPrimaryTypes());
-            Arrays.stream(queryNotPrimaryTypes).forEach(primaryType -> hstQueryBuilder.where(constraint("jcr:primaryType").notEqualTo(primaryType)));
-        }
-
         try {
-            final HstQuery query = hstQueryBuilder.build();
-
-            if (StringUtils.isNotEmpty(componentInfo.getQueryCustomJcrExpression())) {
-                Filter queryFilter = (Filter)query.getFilter();
-                queryFilter.addJCRExpression(componentInfo.getQueryCustomJcrExpression());
-            }
+            HstRequestContext context = request.getRequestContext();
+            final HstQuery query = QueryUtil.constructQueryFromComponentInfo(request, getLimit(), componentInfo);
 
             final HstQueryResult result = query.execute();
             final int totalSize = result.getTotalSize();

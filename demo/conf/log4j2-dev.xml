@@ -103,6 +103,7 @@
 
     <!-- more info wanted -->
     <Logger name="org.apache.jackrabbit.core.persistence.bundle" level="warn"/>
+    <Logger name="org.onehippo.forge.sitemapv2" level="debug"/>
     <Logger name="org.hippoecm.repository.jackrabbit.persistence" level="info"/>
     <Logger name="org.hippoecm.repository.updater" additivity="false" level="info">
       <AppenderRef ref="messages"/>

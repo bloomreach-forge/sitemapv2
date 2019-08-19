@@ -9,6 +9,6 @@ public class IsNotSitemapXmlFilter implements HstSitemapItemFilter {
 
     @Override
     public Predicate<HstSiteMapItem> filter() {
-        return siteMapItem -> !"sitemap.xml".equals(siteMapItem.getId());
+        return siteMapItem -> !(siteMapItem.getId().startsWith("sitemap") && siteMapItem.getId().endsWith(".xml"));
     }
 }

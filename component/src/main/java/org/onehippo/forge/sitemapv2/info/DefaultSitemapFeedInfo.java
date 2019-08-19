@@ -1,5 +1,7 @@
 package org.onehippo.forge.sitemapv2.info;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import org.hippoecm.hst.core.parameters.DropDownList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
@@ -10,6 +12,9 @@ public interface DefaultSitemapFeedInfo {
 
     @Parameter(name = "query-limit", defaultValue = "200")
     Integer getQueryLimit();
+
+    @Parameter(name = "useCache", defaultValue = "false")
+    Boolean getUseCache();
 
     @Parameter(name = "query-offset", defaultValue = "0")
     Integer getQueryOffset();

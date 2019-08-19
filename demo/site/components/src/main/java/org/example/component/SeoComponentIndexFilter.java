@@ -9,7 +9,6 @@ import org.hippoecm.hst.configuration.sitemap.HstSiteMapItem;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.onehippo.forge.sitemapv2.api.HstSitemapItemFilter;
 
-//todo example of iterating through components on page
 public class SeoComponentIndexFilter implements HstSitemapItemFilter {
 
     private static final String NO_INDEX = "noindex";
@@ -17,10 +16,9 @@ public class SeoComponentIndexFilter implements HstSitemapItemFilter {
 
     @Override
     public Predicate<HstSiteMapItem> filter() {
-        HstSiteMap hstSiteMap = RequestContextProvider.get().getResolvedSiteMapItem().getHstSiteMapItem().getHstSiteMap();
         return siteMapItem ->  // Get the HstComponentConfiguration of this site map item
         {
-            HstComponentConfiguration hstComponentConfiguration = hstSiteMap.getSite()
+            HstComponentConfiguration hstComponentConfiguration = siteMapItem.getHstSiteMap().getSite()
                     .getComponentsConfiguration()
                     .getComponentConfiguration(siteMapItem.getComponentConfigurationId());
 
