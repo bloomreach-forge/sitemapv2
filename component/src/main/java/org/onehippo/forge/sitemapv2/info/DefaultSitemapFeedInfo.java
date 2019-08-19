@@ -13,7 +13,7 @@ public interface DefaultSitemapFeedInfo {
     @Parameter(name = "query-limit", defaultValue = "200")
     Integer getQueryLimit();
 
-    @Parameter(name = "useCache", defaultValue = "false")
+    @Parameter(name = "cache-enabled", defaultValue = "false")
     Boolean getUseCache();
 
     @Parameter(name = "query-offset", defaultValue = "0")

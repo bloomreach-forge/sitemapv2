@@ -38,7 +38,7 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
 
         final Map<String, String> rawParameters = componentConfig.getRawParameters();
 
-        if (rawParameters.containsKey("useCache") && Boolean.valueOf(rawParameters.get("useCache")).equals(true)) {
+        if (rawParameters.containsKey("cache-enabled") && Boolean.valueOf(rawParameters.get("cache-enabled")).equals(true)) {
             final int maxSize = rawParameters.containsKey("cache-maxSize") ? Integer.valueOf(rawParameters.get("cache-maxSize")) : 1;
             final int expireAfterAccessDuration = rawParameters.containsKey("cache-expireAfterAccessDuration") ? Integer.valueOf(rawParameters.get("cache-expireAfterAccessDuration")) : 1;
             final TimeUnit expireAfterAccessTimeUnit = rawParameters.containsKey("cache-expireAfterAccessTimeUnit") ? TimeUnit.valueOf(rawParameters.get("cache-expireAfterAccessTimeUnit")) : TimeUnit.DAYS;

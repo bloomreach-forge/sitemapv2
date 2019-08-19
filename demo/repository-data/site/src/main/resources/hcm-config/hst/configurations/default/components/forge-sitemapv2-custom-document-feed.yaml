@@ -5,6 +5,6 @@ definitions:
       hst:componentclassname: org.onehippo.forge.sitemapv2.components.DocumentFeed
       hst:parameternames: [query-offset, query-notPrimaryTypes, query-customJcrExpression,
         query-limit]
-      hst:parametervalues: ['${query-offset}', 'myproject:bannerdocument,,selection:valuelist',
+      hst:parametervalues: ['${query-offset}', 'myproject:bannerdocument,selection:valuelist',
         'not(@myproject:noindex) or @myproject:noindex=''false''', '5']
       hst:template: forge-sitemapv2-feed.ftl
