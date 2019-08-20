@@ -169,3 +169,8 @@ All extensions in the demo are available: `org.example.component.*` and in the s
 | CMS Version | Plugin Version | Notes
 |--|--|--|
 | 13.3 | 0.1.0 | initial release
+
+# TODO
+
+- Currently the sitemap-index.xml  entries do not incorporate the last modified date. The last modified date is not a required property but still good to have it in there. sitemap.xml, sitemap-pages and sitemap-document-\_default\_.xml do support last modified on each entry
+- News, video and image sitemap are not completed yet.
