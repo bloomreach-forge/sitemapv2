@@ -4,5 +4,5 @@ definitions:
       jcr:primaryType: hst:component
       hst:componentclassname: org.onehippo.forge.sitemapv2.components.DefaultSitemapFeed
       hst:template: forge-sitemapv2-feed.ftl
-      hst:parameternames: [useCache]
+      hst:parameternames: [cache-enabled]
       hst:parametervalues: ['true']

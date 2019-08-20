@@ -68,13 +68,19 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
     protected String getSiteMap(final HstRequest request) {
         DefaultSitemapFeedInfo info = getComponentParametersInfo(request);
         if (Boolean.valueOf(info.getUseCache())) {
-            final String mountId = request.getRequestContext().getResolvedMount().getMount().getIdentifier();
-            String siteMapXml = SITEMAP_CACHE.getIfPresent(mountId);
+            final String cacheKey = getCacheKey(request);
+            String siteMapXml = SITEMAP_CACHE.getIfPresent(cacheKey);
             if (StringUtils.isNotEmpty(siteMapXml)) {
                 return siteMapXml;
             }
         }
         return buildSiteMap(request);
+    }
+
+    public String getCacheKey(final HstRequest request) {
+        String identifier = request.getRequestContext().getResolvedMount().getMount().getIdentifier();
+        String pathInfo = request.getPathInfo();
+        return identifier + pathInfo;
     }
 
     /**
@@ -89,8 +95,8 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
         String siteMap = generator.getSitemap();
 
         if (Boolean.valueOf(info.getUseCache())) {
-            final String mountId = request.getRequestContext().getResolvedMount().getMount().getIdentifier();
-            SITEMAP_CACHE.put(mountId, siteMap);
+            final String cacheKey = getCacheKey(request);
+            SITEMAP_CACHE.put(cacheKey, siteMap);
         }
 
         return siteMap;

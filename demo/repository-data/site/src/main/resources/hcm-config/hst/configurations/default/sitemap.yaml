@@ -1,8 +1,8 @@
 definitions:
   config:
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap.xml:
-      hst:componentconfigurationid: hst:components/forge-sitemapv2-custom-feed-cached-seocomponent
+      hst:componentconfigurationid: hst:components/custom-feed-cached-seocomponent
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-document-_default_.xml:
-      hst:componentconfigurationid: hst:components/forge-sitemapv2-custom-document-feed
+      hst:componentconfigurationid: hst:components/custom-document-feed
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-pages.xml:
-      hst:componentconfigurationid: hst:components/forge-sitemapv2-custom-page-feed
+      hst:componentconfigurationid: hst:components/custom-page-feed
