@@ -8,13 +8,18 @@
   
 OOTB the following sitemap items are made available:  
   
-- abc  
-- def  
+- sitemap.xml (->forge-sitemapv2-default-feed) 
+- sitemap-index.xml (->forge-sitemapv2-default-index-feed)
+- sitemap-pages.xml (->forge-sitemapv2-page-feed)
+- sitemap-document-\_default\_.xml (-> forge-sitemapv2-document-feed)
   
 OOTB the following components are made available:  
   
-- 123  
-- 456  
+- forge-sitemapv2-default-feed (combination of document and hstsitemap builder)
+- forge-sitemapv2-default-feed-cached (+ cached)
+- forge-sitemapv2-default-index-feed (index builder)
+- forge-sitemapv2-page-feed (hstsitemap builder)
+- forge-sitemapv2-document-feed (document builder)
 
 ## Builders
 
@@ -158,3 +163,9 @@ Any feed extending `org.onehippo.forge.sitemapv2.components.helper.AbstractSitem
 See demo project for examples on extending. In the demo project there is a case implemented where it will check a specific component and property set on a landing page to exclude it from the sitemap xml. In the demo project there is also an example of excluding document types from the feed but also properties on a document (see author document type, filtered if a boolean is checked).  
   
 All extensions in the demo are available: `org.example.component.*` and in the sitemap configuration of the hst:default site configuration
+
+# Release Notes
+
+| CMS Version | Plugin Version | Notes
+|--|--|--|
+| 13.3 | 0.1.0 | initial release
