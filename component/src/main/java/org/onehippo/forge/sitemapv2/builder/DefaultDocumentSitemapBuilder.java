@@ -40,10 +40,10 @@ public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSite
 
             final HstQueryResult result = query.execute();
             final int totalSize = result.getTotalSize();
-            if (totalSize > getLimit()) {
-                log.warn("total size of query is bigger then the limit, please update the max limit" +
-                        " or create an sitemap index with additional sitemap.xml resources");
-            }
+//            if (totalSize > getLimit()) {
+//                log.warn("total size of query is bigger then the limit, please update the max limit" +
+//                        " or create an sitemap index with additional sitemap.xml resources");
+//            }
             // Get site map items for each bean of this mount
             final HippoBeanIterator hippoBeans = result.getHippoBeans();
 

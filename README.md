@@ -169,7 +169,7 @@ All extensions in the demo are available: `org.example.component.*` and in the s
 
 | CMS Version | Plugin Version | Notes
 |--|--|--|
-| 13.3 | 0.1.0 | initial release
+| 13.3 | 0.1.0 | initial release (not released yet)
 
 # TODO
 
