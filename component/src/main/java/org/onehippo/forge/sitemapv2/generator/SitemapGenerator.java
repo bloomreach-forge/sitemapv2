@@ -19,7 +19,9 @@ import org.onehippo.forge.sitemapv2.components.model.Urlset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * Generated the sitemap.xml
+ */
 public class SitemapGenerator {
 
     private static final int MAX_LIMIT = 10000;

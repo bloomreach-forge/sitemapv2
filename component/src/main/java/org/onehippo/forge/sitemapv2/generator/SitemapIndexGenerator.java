@@ -19,7 +19,9 @@ import org.onehippo.forge.sitemapv2.components.model.sitemapindex.TSitemap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * Generates the sitemap-index.xml
+ */
 public class SitemapIndexGenerator {
 
     private static final int MAX_LIMIT = 1000;

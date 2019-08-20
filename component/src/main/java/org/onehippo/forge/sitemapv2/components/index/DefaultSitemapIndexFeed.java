@@ -42,12 +42,12 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                 .stream()
                 .flatMap(this::flattenSiteMap)
                 .filter(siteMapItem -> siteMapItem.getRefId() != null && siteMapItem.getRefId().startsWith("sitemap-")).collect(Collectors.toSet())
-                .forEach(addToIndexSitemap(request, hstSiteMap, componentsConfiguration, generator));
+                .forEach(addToIndexSitemap(request, componentsConfiguration, generator));
 
         request.setAttribute("sitemap", generator.getSitemapIndex());
     }
 
-    protected Consumer<HstSiteMapItem> addToIndexSitemap(final HstRequest request, final HstSiteMap hstSiteMap, final HstComponentsConfiguration componentsConfiguration, final SitemapIndexGenerator generator) {
+    protected Consumer<HstSiteMapItem> addToIndexSitemap(final HstRequest request, final HstComponentsConfiguration componentsConfiguration, final SitemapIndexGenerator generator) {
         return siteMapItem -> {
             HstRequestContext context = request.getRequestContext();
             HstLinkCreator linkCreator = context.getHstLinkCreator();
@@ -77,9 +77,9 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                         pages++;
                     }
 
-                    for (int i = 1; i <= pages; i++) {
+                    for (int page = 1; page <= pages; page++) {
                         String id = siteMapItem.getId();
-                        String path = id.replace("_default_", String.valueOf(getStartOffset(i, pageSize, totalSize)));
+                        String path = id.replace("_default_", String.valueOf(getStartOffset(page, pageSize, totalSize)));
 
                         TSitemap sitemap = new TSitemap();
                         HstLink hstLink = linkCreator.create(path, context.getResolvedMount().getMount());
@@ -121,6 +121,5 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
 
     private Stream<HstSiteMapItem> flattenSiteMap(HstSiteMapItem siteMapItem) {
         return Stream.concat(Stream.of(siteMapItem), siteMapItem.getChildren().stream().flatMap(this::flattenSiteMap));
-
     }
 }

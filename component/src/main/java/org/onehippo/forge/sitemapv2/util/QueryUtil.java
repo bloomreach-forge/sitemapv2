@@ -65,7 +65,7 @@ public class QueryUtil {
                 try {
                     queryFilter.addNotEqualTo("jcr:primaryType", primaryType);
                 } catch (FilterException e) {
-                    log.error("error while adding multiple primary type constraint", e);
+                    log.error("error while adding multiple primary type constraints", e);
                 }
             });
         }
