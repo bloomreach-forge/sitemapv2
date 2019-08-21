@@ -8,18 +8,24 @@ First install the project on your local repository
  mvn clean install  
 add the following dependency in the site/components pom.xml  
   
- <dependency>     <groupId>org.onehippo.cms7</groupId>    
-     <artifactId>hippo-plugin-sitemapv2-component</artifactId>    
-     <version>13.3.0</version>    
-    </dependency>  
+
+    <dependency>     
+         <groupId>org.onehippo.cms7</groupId>    
+         <artifactId>hippo-plugin-sitemapv2-component</artifactId>    
+         <version>13.3.0</version>    
+     </dependency> 
+
   
 add the following dependency in the site/webapp pom.xml  
   
   
- <dependency>     <groupId>org.onehippo.cms7</groupId>    
-     <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>    
-     <version>13.3.0</version>    
-    </dependency>  
+
+     <dependency>     
+         <groupId>org.onehippo.cms7</groupId>    
+         <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>    
+         <version>13.3.0</version>    
+      </dependency>  
+
   
   # Configuration    
     
