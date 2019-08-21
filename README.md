@@ -182,7 +182,7 @@ In the demo project, in de cms module a content creator `org.example.ContentCrea
   
 | CMS Version | Plugin Version | Notes  
 |--|--|--|  
-| 13.3 | 0.1.0 | initial release (not released yet)  
+| 13.3 | 13.3.0rc1 | initial release (not released yet)  
   
 # TODO  
   
