@@ -63,7 +63,9 @@ In the demo project an example is given on how to filter out pages which have a 
 In the **component configuration** section you can tweak the hstsitemap builder  
   
 ### Document  
- org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder  
+
+ `org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder `
+ 
 This is the builder which will create sitemap entries in the sitemap.xml based on documents which have a canonical link to particular pages (relative content path or through drag n drop components).  
   
 In the demo project an example is give on how to filter out documents which have a particular property on the document (myproject:noindex boolean property)  
