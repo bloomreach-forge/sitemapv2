@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>30.3.1-SNAPSHOT</version>
+    <version>30.3.0</version>
   </parent>
 
   <name>Hippo Plugin SitemapV2</name>
@@ -28,7 +28,7 @@
   <groupId>org.onehippo.cms7</groupId>
   <artifactId>hippo-plugin-sitemapv2</artifactId>
   <packaging>pom</packaging>
-  <version>13.3.1-SNAPSHOT</version>
+  <version>13.3.0</version>
 
   <inceptionYear>2019</inceptionYear>
 
@@ -42,9 +42,9 @@
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Plugin Sitemap V2</notice.project.name>
 
-    <hippo.hst.version>13.3.1-SNAPSHOT</hippo.hst.version>
-    <hippo.repository.version>13.3.1-SNAPSHOT</hippo.repository.version>
-    <hippo.commons.version>13.3.1-SNAPSHOT</hippo.commons.version>
+    <hippo.hst.version>13.3.0</hippo.hst.version>
+    <hippo.repository.version>13.3.0</hippo.repository.version>
+    <hippo.commons.version>13.3.0</hippo.commons.version>
     <junit.version>4.12</junit.version>
   </properties>
 
@@ -148,7 +148,7 @@
   <modules>
     <module>component</module>
     <module>hcm-site</module>
-    <module>demo</module>
+    <!--<module>demo</module>-->
   </modules>
 
 </project>

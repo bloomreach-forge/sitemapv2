@@ -76,13 +76,18 @@ public class ContentCreator {
     @Ignore
     @Test
     public void testDocumentCreation() throws RepositoryException, WorkflowException, RemoteException {
-//        createNewsDocuments(session, 1000);
-//        createContentDocuments(session, 1000);
-//        createEventsDocuments(session, 1000);
-//        createBlogDocuments(session, 1000);
-//
-//        createLandingPages(100);
-//        createSubLandingPages(2000);
+        createNewsDocuments(session, 3000);
+        createContentDocuments(session, 3000);
+        createEventsDocuments(session, 3000);
+        createBlogDocuments(session, 3000);
+        createNewsDocuments(session, 3000);
+        createContentDocuments(session, 3000);
+        createNewsDocuments(session, 3000);
+        createEventsDocuments(session, 3000);
+        createBlogDocuments(session, 3000);
+
+        createLandingPages(300);
+        createSubLandingPages(600);
     }
 
     @Test
