@@ -1,4 +1,3 @@
-
   
 # Installation   
 The project has not been released yet.  
@@ -48,12 +47,15 @@ OOTB the following components are made available:
   
 The sitemapv2 project consist of builder for building up entries in the sitemap.xml. All default builders are an implementation of:  
   
- org.onehippo.forge.sitemapv2.api.SitemapBuilder  
+
+ `org.onehippo.forge.sitemapv2.api.SitemapBuilder`
+
 There are 2 main default builders:  
   
 ### HstSitemap  
   
- org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder  
+ `org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder  `
+ 
 This is the builder which will create sitemap entries in the sitemap.xml based on pages available from the HstSitemap (HST api), these are pages which are connected through a HST sitemap item. This includes pages inside and outside of the workspace.  
   
 In the demo project an example is given on how to filter out pages which have a certain component (drag n drop) with a certain property.  
