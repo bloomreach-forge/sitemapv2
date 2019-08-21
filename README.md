@@ -54,7 +54,7 @@ There are 2 main default builders:
   
 ### HstSitemap  
   
- `org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder  `
+ `org.onehippo.forge.sitemapv2.builder.DefaultHstSitemapSitemapBuilder  `
  
 This is the builder which will create sitemap entries in the sitemap.xml based on pages available from the HstSitemap (HST api), these are pages which are connected through a HST sitemap item. This includes pages inside and outside of the workspace.  
   
