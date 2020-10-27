@@ -9,15 +9,14 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.builder.DefaultHstSitemapSitemapBuilder;
-import org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed;
+import org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 
 @ParametersInfo(type = DefaultSitemapFeedInfo.class)
 public class HstSitemapItemsFeed extends AbstractSitemapFeed {
 
     //Builder for hst sitemap items inside and outside of workspace
-    private static final SitemapBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultHstSitemapSitemapBuilder();
+    private static final SitemapBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultSitemapBuilder();
     private static final Set<SitemapBuilder> HST_SITEMAP_BUILDER = Sets.newHashSet(HST_SITEMAP_SITEMAP_BUILDER);
 
     @SuppressWarnings("Duplicates")

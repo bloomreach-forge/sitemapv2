@@ -10,8 +10,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
 import org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder;
-import org.onehippo.forge.sitemapv2.builder.DefaultHstSitemapSitemapBuilder;
-import org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed;
+import org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +26,7 @@ public class DefaultSitemapFeed extends AbstractSitemapFeed {
     //Builder for document
     private static final SitemapBuilder<DefaultSitemapFeedInfo> DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentSitemapBuilder();
     //Builder for hst sitemap items inside and outside of workspace
-    private static final SitemapBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultHstSitemapSitemapBuilder();
+    private static final SitemapBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultSitemapBuilder();
     //collected list of builders and order
     private static final Set<SitemapBuilder> DEFAULT_BUILDERS = Sets.newHashSet(DOCUMENT_SITEMAP_BUILDER, HST_SITEMAP_SITEMAP_BUILDER);
     private static Logger log = LoggerFactory.getLogger(DefaultSitemapFeed.class);

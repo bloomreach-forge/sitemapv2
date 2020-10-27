@@ -1,4 +1,4 @@
-package org.onehippo.forge.sitemapv2.components.index;
+package org.onehippo.forge.sitemapv2.components;
 
 import java.util.Map;
 import java.util.function.Consumer;

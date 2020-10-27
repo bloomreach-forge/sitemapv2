@@ -37,7 +37,7 @@ import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultHstSitemapSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
+public class DefaultSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
 
     private static final HstSitemapItemFilter isNotContainerResource = new IsNotContainerResourceFilter();
     private static final HstSitemapItemFilter isNotAny = new IsNotAnyFilter();
@@ -59,7 +59,7 @@ public class DefaultHstSitemapSitemapBuilder implements SitemapBuilder<DefaultSi
             isNotSitemapXml,
             excludeRefIdFilter);
 
-    private static Logger log = LoggerFactory.getLogger(DefaultHstSitemapSitemapBuilder.class);
+    private static Logger log = LoggerFactory.getLogger(DefaultSitemapBuilder.class);
 
     @Override
     public void build(final HstRequest request, final DefaultSitemapFeedInfo componentInfo, final SitemapGenerator generator) {

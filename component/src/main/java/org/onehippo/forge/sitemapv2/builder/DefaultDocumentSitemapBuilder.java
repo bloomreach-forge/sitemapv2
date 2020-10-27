@@ -18,11 +18,11 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
 import org.onehippo.forge.sitemapv2.components.model.Url;
 import org.onehippo.forge.sitemapv2.generator.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
+import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,10 +40,10 @@ public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSite
 
             final HstQueryResult result = query.execute();
             final int totalSize = result.getTotalSize();
-//            if (totalSize > getLimit()) {
-//                log.warn("total size of query is bigger then the limit, please update the max limit" +
-//                        " or create an sitemap index with additional sitemap.xml resources");
-//            }
+            if (totalSize > getLimit()) {
+                log.warn("total size of query is bigger then the limit, please update the max limit" +
+                        " or create an sitemap index with additional sitemap.xml resources");
+            }
             // Get site map items for each bean of this mount
             final HippoBeanIterator hippoBeans = result.getHippoBeans();
 

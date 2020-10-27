@@ -1,4 +1,4 @@
-package org.onehippo.forge.sitemapv2.components.helper;
+package org.onehippo.forge.sitemapv2.components;
 
 import java.util.Map;
 import java.util.Set;
@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 @ParametersInfo(type = DefaultSitemapFeedInfo.class)
 public abstract class AbstractSitemapFeed extends BaseHstComponent {
 
-    private static Logger log = LoggerFactory.getLogger(AbstractSitemapFeed.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AbstractSitemapFeed.class);
 
     //implementation of com.google.common.cache.Cache are expected to be thread-safe, and can be safely accessed
     // * by multiple concurrent threads.
@@ -57,8 +57,8 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
         String siteMap = getSiteMap(request);
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
-        log.debug("ms:" + duration / 1000000);
-        log.debug("mb:" + siteMap.length() / 1000000f);
+        LOG.debug("ms:" + duration / 1000000);
+        LOG.debug("mb:" + siteMap.length() / 1000000f);
         request.setAttribute("sitemap", siteMap);
     }
 
@@ -91,7 +91,7 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
         final SitemapGenerator generator = new SitemapGenerator();
         DefaultSitemapFeedInfo info = getComponentParametersInfo(request);
         getBuilders().forEach(sitemapBuilder -> sitemapBuilder.build(request, info, generator));
-        log.debug("size:" + generator.getSize());
+        LOG.debug("size:" + generator.getSize());
         String siteMap = generator.getSitemap();
 
         if (Boolean.valueOf(info.getUseCache())) {

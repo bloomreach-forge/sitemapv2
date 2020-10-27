@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.builder.DefaultHstSitemapSitemapBuilder;
+import org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder;
 import org.onehippo.forge.sitemapv2.components.HstSitemapItemsFeed;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 
@@ -19,7 +19,7 @@ public class ExtendedHstSitemapItemsFeed extends HstSitemapItemsFeed {
         //replacing the default
         Set<SitemapBuilder> builders = super.getBuilders();
         builders = builders.stream()
-                .map(sitemapBuilder -> sitemapBuilder instanceof DefaultHstSitemapSitemapBuilder ? SEO_COMPONENT_FILTERING_HST_SITEMAP_BUILDER : sitemapBuilder)
+                .map(sitemapBuilder -> sitemapBuilder instanceof DefaultSitemapBuilder ? SEO_COMPONENT_FILTERING_HST_SITEMAP_BUILDER : sitemapBuilder)
                 .collect(Collectors.toSet());
         return builders;
     }

@@ -10,7 +10,6 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
 import org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder;
-import org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +19,7 @@ public class DocumentFeed extends AbstractSitemapFeed {
 
     //Builder for document
     private static final SitemapBuilder<DefaultSitemapFeedInfo> DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentSitemapBuilder();
-    private static Logger log = LoggerFactory.getLogger(DocumentFeed.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DocumentFeed.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
