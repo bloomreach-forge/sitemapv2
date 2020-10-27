@@ -74,20 +74,24 @@ add the following dependency in the site/webapp pom.xml
   
 # Configuration    
     
- OOTB the following sitemap items are bootstrapped to hst:default:    
+OOTB the following sitemap items are bootstrapped to hst:default:    
     
-- sitemap.xml --> forge-sitemapv2-default-feed  
-- sitemap-index.xml --> forge-sitemapv2-default-index-feed  
-- sitemap-pages.xml -->forge-sitemapv2-page-feed  
-- sitemap-document-\_default\_.xml --> forge-sitemapv2-document-feed  
+- **sitemap.xml** --> forge-sitemapv2-default-feed  
+- **sitemap-index.xml** --> forge-sitemapv2-default-index-feed  
+- **sitemap-pages.xml** -->forge-sitemapv2-page-feed  
+- **sitemap-document-\_default\_.xml** --> forge-sitemapv2-document-feed  
+    
+In the example project there is also:
+
+- **sitemap-news.xml**
     
 OOTB the following components are bootstrapped to hst:default :    
     
-- forge-sitemapv2-default-feed (combination of document and hstsitemap builder)  
-- forge-sitemapv2-default-feed-cached (+ cached)  
-- forge-sitemapv2-default-index-feed (index builder)  
-- forge-sitemapv2-page-feed (hstsitemap builder)  
-- forge-sitemapv2-document-feed (document builder)  
+- **forge-sitemapv2-default-feed** (combination of document and hstsitemap builder)  
+- **forge-sitemapv2-default-feed-cached** (+ cached)  
+- **forge-sitemapv2-default-index-feed** (index builder)  
+- **forge-sitemapv2-page-feed** (hstsitemap builder)  
+- **forge-sitemapv2-document-feed** (document builder)  
   
 ## Entry Builders  
   
