@@ -32,7 +32,7 @@ import org.onehippo.forge.sitemapv2.filter.IsNotContainerResourceFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotRobotsTxtFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotSitemapXmlFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotWildCardFilter;
-import org.onehippo.forge.sitemapv2.generator.SitemapGenerator;
+import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,7 +74,7 @@ public class DefaultSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedI
                 .flatMap(this::flattenSiteMap)
                 .filter(compositeFilter)
                 .map(getUrlMapper(context, componentInfo))
-                .forEach(generator::addUrl);
+                .forEach(generator::add);
     }
 
     @SuppressWarnings("Duplicates")

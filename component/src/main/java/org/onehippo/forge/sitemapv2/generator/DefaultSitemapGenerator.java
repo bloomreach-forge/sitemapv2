@@ -13,6 +13,7 @@ import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 
+import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.components.model.SiteMapCharacterEscapeHandler;
 import org.onehippo.forge.sitemapv2.components.model.Url;
 import org.onehippo.forge.sitemapv2.components.model.Urlset;
@@ -22,14 +23,14 @@ import org.slf4j.LoggerFactory;
 /**
  * Generated the sitemap.xml
  */
-public class SitemapGenerator {
+public class DefaultSitemapGenerator implements SitemapGenerator<Url> {
 
     private static final int MAX_LIMIT = 10000;
 
-    private static final Logger log = LoggerFactory.getLogger(SitemapGenerator.class);
+    private static final Logger log = LoggerFactory.getLogger(DefaultSitemapGenerator.class);
     private final Urlset urls;
 
-    public SitemapGenerator() {
+    public DefaultSitemapGenerator() {
         this.urls = new Urlset();
     }
 
@@ -67,7 +68,8 @@ public class SitemapGenerator {
         return toString(urls);
     }
 
-    public boolean addUrl(Url url) {
-        return urls.add(url);
+    @Override
+    public void add(final Url url) {
+        urls.add(url);
     }
 }

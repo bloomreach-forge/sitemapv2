@@ -8,7 +8,7 @@ import javax.jcr.RepositoryException;
 
 import com.google.common.collect.Streams;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -18,32 +18,28 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
-import org.onehippo.forge.sitemapv2.components.model.Url;
 import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
-import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
+import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
+import org.onehippo.forge.sitemapv2.components.model.news.NewsUrl;
+import org.onehippo.forge.sitemapv2.info.DefaultNewsSitemapFeedInfo;
 import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
+public class DefaultDocumentNewsSitemapBuilder implements SitemapBuilder<DefaultNewsSitemapFeedInfo> {
 
     private static final int LIMIT_MAX = 1000;
-    private static final String PUBLICTION_DATE_PROPERTY = "hippostdpubwf:publicationDate";
-    private static final Logger log = LoggerFactory.getLogger(DefaultDocumentSitemapBuilder.class);
+    private static final String PUBLICATION_DATE_PROPERTY = "hippostdpubwf:publicationDate";
+    private static final String TRANSLATION_PROPERTY_LOCALE = "hippotranslation:locale";
+    private static final Logger log = LoggerFactory.getLogger(DefaultDocumentNewsSitemapBuilder.class);
 
     @Override
-    public void build(final HstRequest request, final DefaultSitemapFeedInfo componentInfo, final SitemapGenerator generator) {
+    public void build(final HstRequest request, final DefaultNewsSitemapFeedInfo componentInfo, final SitemapGenerator generator) {
         try {
             HstRequestContext context = request.getRequestContext();
             final HstQuery query = QueryUtil.constructQueryFromComponentInfo(request, getLimit(), componentInfo);
 
             final HstQueryResult result = query.execute();
-            final int totalSize = result.getTotalSize();
-            if (totalSize > getLimit()) {
-                log.warn("total size of query is bigger then the limit, please update the max limit" +
-                        " or create an sitemap index with additional sitemap.xml resources");
-            }
             // Get site map items for each bean of this mount
             final HippoBeanIterator hippoBeans = result.getHippoBeans();
 
@@ -58,20 +54,35 @@ public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSite
 
 
     @SuppressWarnings("Duplicates")
-    protected Function<HippoBean, Url> getUrlMapper(final HstRequestContext context, final DefaultSitemapFeedInfo componentInfo) {
+    protected Function<HippoBean, NewsUrl> getUrlMapper(final HstRequestContext context, final DefaultNewsSitemapFeedInfo componentInfo) {
         return bean -> {
             HstLink hstLink = context.getHstLinkCreator().createCanonical(bean.getNode(), context);
             if (!hstLink.isNotFound()) {
-                Url url = new Url();
+                NewsUrl url = new NewsUrl();
                 String loc = hstLink.toUrlForm(context, true);
                 url.setLoc(loc);
                 try {
-                    if (bean.getNode().hasProperty(PUBLICTION_DATE_PROPERTY)) {
-                        Calendar lastMod = bean.getSingleProperty(PUBLICTION_DATE_PROPERTY);
+                    if (bean.getNode().hasProperty(PUBLICATION_DATE_PROPERTY)) {
+                        Calendar lastMod = bean.getSingleProperty(PUBLICATION_DATE_PROPERTY);
                         url.setLastmod(lastMod);
                     }
+
+                    if (bean.getNode().hasProperty(TRANSLATION_PROPERTY_LOCALE)) {
+                        String locale = bean.getSingleProperty(TRANSLATION_PROPERTY_LOCALE);
+                        url.setPublication(componentInfo.getPublicationName(), locale);
+
+                    } else {
+                        url.setPublication(componentInfo.getPublicationName(), componentInfo.getPublicationLanguageFallback());
+                    }
+
+                    if (StringUtils.isNotEmpty(componentInfo.getNewsTitlePropertyMapping()) && bean.getNode().hasProperty(componentInfo.getNewsTitlePropertyMapping())) {
+                        String title = bean.getSingleProperty(componentInfo.getNewsTitlePropertyMapping());
+                        url.setTitle(title);
+                    } else {
+                        url.setTitle(bean.getDisplayName());
+                    }
                 } catch (RepositoryException e) {
-                    log.error("error while trying to retrieve the last publication date of document while creating sitemap.xml", e);
+                    log.error("error while trying to retrieve the information from the document while creating news sitemap.xml", e);
                 }
                 if (StringUtils.isNotEmpty(componentInfo.getUrlChangeFrequency())) {
                     url.setChangeFrequency(ChangeFrequency.valueOf(componentInfo.getUrlChangeFrequency()));

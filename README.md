@@ -11,7 +11,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
 | 14.3 | 2.0.0 | initial release 
   
   # Installation   
-The project has not been released yet.  
+...
   
 First install the project on your local repository  
   
@@ -200,4 +200,4 @@ In the demo project, in de cms module a content creator `org.example.ContentCrea
 # TODO  
   
 - Currently the sitemap-index.xml entries do not incorporate the last modified date. The last modified date is not a required property but still good to have it in there. sitemap.xml, sitemap-pages and sitemap-document-\_default\_.xml do support last modified on each entry  
-- News, video and image sitemap are not completed (yet).
+- Video and Image sitemap are not completed (yet).

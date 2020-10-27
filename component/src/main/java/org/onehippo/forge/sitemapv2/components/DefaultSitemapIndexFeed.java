@@ -20,6 +20,7 @@ import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.sitemapv2.components.model.sitemapindex.TSitemap;
+import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.generator.SitemapIndexGenerator;
 import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.slf4j.Logger;
@@ -34,7 +35,7 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
         super.doBeforeRender(request, response);
 
         final HstSiteMap hstSiteMap = request.getRequestContext().getResolvedSiteMapItem().getHstSiteMapItem().getHstSiteMap();
-        final SitemapIndexGenerator generator = new SitemapIndexGenerator();
+        final SitemapGenerator generator = new SitemapIndexGenerator();
         final HstComponentsConfiguration componentsConfiguration = hstSiteMap.getSite()
                 .getComponentsConfiguration();
 
@@ -44,10 +45,10 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                 .filter(siteMapItem -> siteMapItem.getRefId() != null && siteMapItem.getRefId().startsWith("sitemap-")).collect(Collectors.toSet())
                 .forEach(addToIndexSitemap(request, componentsConfiguration, generator));
 
-        request.setAttribute("sitemap", generator.getSitemapIndex());
+        request.setAttribute("sitemap", generator.getSitemap());
     }
 
-    protected Consumer<HstSiteMapItem> addToIndexSitemap(final HstRequest request, final HstComponentsConfiguration componentsConfiguration, final SitemapIndexGenerator generator) {
+    protected Consumer<HstSiteMapItem> addToIndexSitemap(final HstRequest request, final HstComponentsConfiguration componentsConfiguration, final SitemapGenerator generator) {
         return siteMapItem -> {
             HstRequestContext context = request.getRequestContext();
             HstLinkCreator linkCreator = context.getHstLinkCreator();
@@ -85,7 +86,7 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                         HstLink hstLink = linkCreator.create(path, context.getResolvedMount().getMount());
                         sitemap.setLoc(hstLink.toUrlForm(context, true));
                         //todo support for last modified?
-                        generator.addSitemapUrl(sitemap);
+                        generator.add(sitemap);
                     }
                 } catch (QueryException e) {
                     log.error("error while getting the sitemap link of document", e);
@@ -95,7 +96,7 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                 TSitemap sitemap = new TSitemap();
                 sitemap.setLoc(hstLink.toUrlForm(context, true));
                 //todo support for last modified?
-                generator.addSitemapUrl(sitemap);
+                generator.add(sitemap);
             } else {
                 log.warn(siteMapItem.getId() + " should not be in the result set");
             }

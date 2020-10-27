@@ -17,7 +17,8 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
 import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.generator.SitemapGenerator;
+import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
+import org.onehippo.forge.sitemapv2.generator.DefaultSitemapGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,9 +57,11 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
         long startTime = System.nanoTime();
         String siteMap = getSiteMap(request);
         long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        LOG.debug("ms:" + duration / 1000000);
-        LOG.debug("mb:" + siteMap.length() / 1000000f);
+        if (LOG.isDebugEnabled()) {
+            long duration = (endTime - startTime);
+            LOG.debug("time to generate sitemap in ms:" + duration / 1000000);
+            LOG.debug("size of sitemap in mb:" + siteMap.length() / 1000000f);
+        }
         request.setAttribute("sitemap", siteMap);
     }
 
@@ -94,10 +97,12 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
      * available for override in sub class
      */
     protected String buildSiteMap(final HstRequest request) {
-        final SitemapGenerator generator = new SitemapGenerator();
+        final SitemapGenerator generator = getSitemapGenerator();
         DefaultSitemapFeedInfo info = getComponentParametersInfo(request);
         getBuilders().forEach(sitemapBuilder -> sitemapBuilder.build(request, info, generator));
-        LOG.debug("size:" + generator.getSize());
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("sitemap size:" + generator.getSize());
+        }
         String siteMap = generator.getSitemap();
 
         if (Boolean.valueOf(info.getUseCache())) {
@@ -114,4 +119,8 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
      * @return
      */
     protected abstract Set<SitemapBuilder> getBuilders();
+
+    protected SitemapGenerator getSitemapGenerator() {
+        return new DefaultSitemapGenerator();
+    }
 }

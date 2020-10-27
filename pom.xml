@@ -117,33 +117,7 @@
     <!--<url>https://issues.onehippo.com/browse/HIPPLUG/component/10856</url>-->
   <!--</issueManagement>-->
 
-  <!--<profiles>-->
-    <!--<profile>-->
-      <!--<id>pedantic</id>-->
-      <!--<build>-->
-        <!--<plugins>-->
-          <!--<plugin>-->
-            <!--<groupId>org.apache.rat</groupId>-->
-            <!--<artifactId>apache-rat-plugin</artifactId>-->
-            <!--<inherited>false</inherited>-->
-            <!--<configuration>-->
-              <!--<excludes combine.children="append">-->
-                <!--&lt;!&ndash; covered by 3rd-party licenses in the LICENSE file &ndash;&gt;-->
-                <!--<exclude>component/src/main/java/org/onehippo/forge/sitemap/components/model/news/package-info.java</exclude>-->
-                <!--<exclude>component/src/main/java/org/onehippo/forge/sitemap/components/model/news/info/package-info.java</exclude>-->
-                <!--<exclude>component/src/main/java/org/onehippo/forge/sitemap/components/model/package-info.java</exclude>-->
-                <!--<exclude>component/src/main/java/org/onehippo/forge/sitemap/components/model/sitemap.xsd</exclude>-->
-                <!--<exclude>component/src/main/java/org/onehippo/forge/sitemap/components/model/sitemapindex/package-info.java</exclude>-->
-                <!--<exclude>component/src/main/java/org/onehippo/forge/sitemap/components/model/sitemapindex/sitemapindex.xsd</exclude>-->
-                <!--&lt;!&ndash; repository content XML &ndash;&gt;-->
-                <!--<exclude>content/src/main/resources/*.xml</exclude>-->
-              <!--</excludes>-->
-            <!--</configuration>-->
-          <!--</plugin>-->
-        <!--</plugins>-->
-      <!--</build>-->
-    <!--</profile>-->
-  <!--</profiles>-->
+
   
   <modules>
     <module>component</module>

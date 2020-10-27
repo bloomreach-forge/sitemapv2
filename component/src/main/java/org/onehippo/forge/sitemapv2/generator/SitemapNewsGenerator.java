@@ -15,29 +15,29 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.components.model.SiteMapCharacterEscapeHandler;
-import org.onehippo.forge.sitemapv2.components.model.sitemapindex.SitemapIndex;
-import org.onehippo.forge.sitemapv2.components.model.sitemapindex.TSitemap;
+import org.onehippo.forge.sitemapv2.components.model.news.NewsUrl;
+import org.onehippo.forge.sitemapv2.components.model.news.NewsUrlset;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Generates the sitemap-index.xml
+ * Generated the sitemap.xml
  */
-public class SitemapIndexGenerator implements SitemapGenerator<TSitemap> {
+public class SitemapNewsGenerator implements SitemapGenerator<NewsUrl> {
 
     private static final int MAX_LIMIT = 1000;
 
-    private static final Logger log = LoggerFactory.getLogger(SitemapIndexGenerator.class);
-    private final SitemapIndex index;
+    private static final Logger log = LoggerFactory.getLogger(SitemapNewsGenerator.class);
+    private final NewsUrlset urls;
 
-    public SitemapIndexGenerator() {
-        this.index = new SitemapIndex();
+    public SitemapNewsGenerator() {
+        this.urls = new NewsUrlset();
     }
 
     @SuppressWarnings("Duplicates")
-    public static String toString(final SitemapIndex index) {
+    public static String toString(final NewsUrlset urls) {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            JAXBContext jc = JAXBContext.newInstance(SitemapIndex.class, TSitemap.class);
+            JAXBContext jc = JAXBContext.newInstance(NewsUrlset.class, NewsUrl.class);
             Marshaller m = jc.createMarshaller();
 
             TransformerHandler handler = ((SAXTransformerFactory)SAXTransformerFactory.newInstance()).newTransformerHandler();
@@ -48,41 +48,29 @@ public class SitemapIndexGenerator implements SitemapGenerator<TSitemap> {
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", Integer.toString(2));
             handler.setResult(new StreamResult(out));
 
-            m.marshal(index, new SiteMapCharacterEscapeHandler(handler));
+            m.marshal(urls, new SiteMapCharacterEscapeHandler(handler));
             return out.toString();
         } catch (JAXBException | TransformerConfigurationException | IOException e) {
-            throw new IllegalStateException("Cannot marshal the Urlset to an XML string", e);
+            throw new IllegalStateException("Cannot marshal the NewsUrlset to an XML string", e);
         }
     }
 
     public int getSize() {
-        return index.getSitemap().size();
+        return urls.getUrls().size();
     }
 
-    @Override
     public String getSitemap() {
         int size = getSize();
         if (size > MAX_LIMIT) {
-            log.warn("Sitemapindex size exceeds the limit of " + MAX_LIMIT);
+            log.warn("News Sitemap size exceeds the limit of " + MAX_LIMIT);
+            log.warn("Please configure component parameters");
         }
-        return toString(index);
+        return toString(urls);
     }
 
-//    @SuppressWarnings("Duplicates")
-//    public String getSitemapIndex() {
-//        int size = getSize();
-//        if (size > MAX_LIMIT) {
-//            log.warn("Sitemapindex size exceeds the limit of " + MAX_LIMIT);
-//        }
-//        return toString(index);
-//    }
-
-    public boolean addSitemapUrl(TSitemap sitemap) {
-        return index.getSitemap().add(sitemap);
-    }
 
     @Override
-    public void add(final TSitemap sitemap) {
-        index.getSitemap().add(sitemap);
+    public void add(final NewsUrl url) {
+        urls.addUrl(url);
     }
 }

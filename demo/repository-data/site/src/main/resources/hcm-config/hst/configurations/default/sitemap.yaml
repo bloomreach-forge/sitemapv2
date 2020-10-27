@@ -6,3 +6,6 @@ definitions:
       hst:componentconfigurationid: hst:components/custom-document-feed
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-pages.xml:
       hst:componentconfigurationid: hst:components/custom-page-feed
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-news.xml:
+      hst:componentconfigurationid: hst:components/custom-document-news-feed
+
