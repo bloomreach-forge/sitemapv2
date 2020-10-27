@@ -77,6 +77,12 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
         return buildSiteMap(request);
     }
 
+    /**
+     * The cache key is the identifier of the mount + the path
+     *
+     * @param request
+     * @return
+     */
     public String getCacheKey(final HstRequest request) {
         String identifier = request.getRequestContext().getResolvedMount().getMount().getIdentifier();
         String pathInfo = request.getPathInfo();

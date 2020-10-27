@@ -1,5 +1,17 @@
+# Sitemap V2
+The sitemap v2 plugin is the successor to the original sitemap plugin https://documentation.bloomreach.com/14/library/concepts/plugins/sitemap/about.html.
+The Sitemap plugin is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
+The Sitemap plugin v2 is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
+
+ 
+# Release Notes  
   
-# Installation   
+| CMS Version | Plugin Version | Notes  
+|---|---|---|  
+| 13.3 | 1.0.0 | initial release  
+| 14.3 | 2.0.0 | initial release 
+  
+  # Installation   
 The project has not been released yet.  
   
 First install the project on your local repository  
@@ -16,8 +28,6 @@ add the following dependency in the site/components pom.xml
 
   
 add the following dependency in the site/webapp pom.xml  
-  
-  
 
      <dependency>     
          <groupId>org.onehippo.cms7</groupId>    
@@ -28,14 +38,14 @@ add the following dependency in the site/webapp pom.xml
   
   # Configuration    
     
- OOTB the following sitemap items are made available:    
+ OOTB the following sitemap items are bootstrapped to hst:default:    
     
 - sitemap.xml (->forge-sitemapv2-default-feed)   
 - sitemap-index.xml (->forge-sitemapv2-default-index-feed)  
 - sitemap-pages.xml (->forge-sitemapv2-page-feed)  
 - sitemap-document-\_default\_.xml (-> forge-sitemapv2-document-feed)  
     
-OOTB the following components are made available:    
+OOTB the following components are bootstrapped to hst:default :    
     
 - forge-sitemapv2-default-feed (combination of document and hstsitemap builder)  
 - forge-sitemapv2-default-feed-cached (+ cached)  
@@ -46,7 +56,6 @@ OOTB the following components are made available:
 ## Builders  
   
 The sitemapv2 project consist of builder for building up entries in the sitemap.xml. All default builders are an implementation of:  
-  
 
  `org.onehippo.forge.sitemapv2.api.SitemapBuilder`
 
@@ -54,7 +63,7 @@ There are 2 main default builders:
   
 ### HstSitemap  
   
- `org.onehippo.forge.sitemapv2.builder.DefaultHstSitemapSitemapBuilder  `
+ `org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder  `
  
 This is the builder which will create sitemap entries in the sitemap.xml based on pages available from the HstSitemap (HST api), these are pages which are connected through a HST sitemap item. This includes pages inside and outside of the workspace.  
   
@@ -88,7 +97,7 @@ And each will have the appropriate approach based on the number of pages and amo
   
 ### Small website (single channel and local development)     
  | Amount of Pages | Amount of Documents  |      
-|--|--|      
+|---|---|      
 | 1-100 | 1-200  |      
       
 Approach:      
@@ -100,7 +109,7 @@ As supplied ootb with plugin installed.
        
 ### Small to Medium sized websites (per channel)     
  | Amount of Pages | Amount of Documents  |      
-|--|--|      
+|---|---|      
 | 50-200 | 200-1000  |      
       
 Approach:      
@@ -112,7 +121,7 @@ Approach:
       
 ### Medium sized websites (per channel)      
  | Amount of Pages | Amount of Documents  |      
-|--|--|      
+|---|---|      
 | 100-400 | 500-10.000  |      
       
 Approach:      
@@ -128,7 +137,7 @@ Use the sitemap index sitemap item.
       
 ### Medium to Large sized websites (per channel)      
  | Amount of Pages | Amount of Documents  |      
-|--|--|      
+|---|---|      
 | 200-1000 | 1000-50.000  |      
     
 Use the sitemap index sitemap item.    
@@ -143,7 +152,7 @@ Use the sitemap index sitemap item.
       
 ### Large websites (per channel)      
  | Amount of Pages | Amount of Documents  |      
-|--|--|      
+|---|---|      
 | 500-1500 | 50.000-1.000.000  |    
     
 Use the sitemap index sitemap item.    
@@ -161,7 +170,7 @@ Use the sitemap index sitemap item.
  Any feed extending `org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed` will have the following properties available:    
     
 | property | use | default |    
-|--|--|--|    
+|---|---|---|    
 | query-limit  | set a limit on the document feed query, maximum value is 1000  | 200 |    
 | query-offset | set an offset on the document feed query. | 0    
 | query-ofTypes | filter query where subtypes are included. |    
@@ -188,13 +197,8 @@ All extensions in the demo are available: `org.example.component.*` and in the s
   
 In the demo project, in de cms module a content creator `org.example.ContentCreator.testDocumentCreation`  is available to create test content and to do performance tests in the local project.
   
-# Release Notes  
-  
-| CMS Version | Plugin Version | Notes  
-|--|--|--|  
-| 13.3 | 13.3.0rc1 | initial release (not released yet)  
   
 # TODO  
   
-- Currently the sitemap-index.xml  entries do not incorporate the last modified date. The last modified date is not a required property but still good to have it in there. sitemap.xml, sitemap-pages and sitemap-document-\_default\_.xml do support last modified on each entry  
-- News, video and image sitemap are not completed yet.
+- Currently the sitemap-index.xml entries do not incorporate the last modified date. The last modified date is not a required property but still good to have it in there. sitemap.xml, sitemap-pages and sitemap-document-\_default\_.xml do support last modified on each entry  
+- News, video and image sitemap are not completed (yet).
