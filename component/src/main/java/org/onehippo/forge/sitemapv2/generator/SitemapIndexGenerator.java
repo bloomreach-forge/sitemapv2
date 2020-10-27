@@ -68,19 +68,6 @@ public class SitemapIndexGenerator implements SitemapGenerator<TSitemap> {
         return toString(index);
     }
 
-//    @SuppressWarnings("Duplicates")
-//    public String getSitemapIndex() {
-//        int size = getSize();
-//        if (size > MAX_LIMIT) {
-//            log.warn("Sitemapindex size exceeds the limit of " + MAX_LIMIT);
-//        }
-//        return toString(index);
-//    }
-
-    public boolean addSitemapUrl(TSitemap sitemap) {
-        return index.getSitemap().add(sitemap);
-    }
-
     @Override
     public void add(final TSitemap sitemap) {
         index.getSitemap().add(sitemap);

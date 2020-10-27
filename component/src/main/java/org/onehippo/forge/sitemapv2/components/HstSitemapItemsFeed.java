@@ -8,16 +8,16 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
+import org.onehippo.forge.sitemapv2.builder.DefaultSitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 
 @ParametersInfo(type = DefaultSitemapFeedInfo.class)
 public class HstSitemapItemsFeed extends AbstractSitemapFeed {
 
     //Builder for hst sitemap items inside and outside of workspace
-    private static final SitemapBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultSitemapBuilder();
-    private static final Set<SitemapBuilder> HST_SITEMAP_BUILDER = Sets.newHashSet(HST_SITEMAP_SITEMAP_BUILDER);
+    private static final SitemapEntriesBuilder<DefaultSitemapFeedInfo> HST_SITEMAP_SITEMAP_BUILDER = new DefaultSitemapEntriesBuilder();
+    private static final Set<SitemapEntriesBuilder> HST_SITEMAP_BUILDER = Sets.newHashSet(HST_SITEMAP_SITEMAP_BUILDER);
 
     @SuppressWarnings("Duplicates")
     @Override
@@ -30,7 +30,7 @@ public class HstSitemapItemsFeed extends AbstractSitemapFeed {
      *
      * @return
      */
-    protected Set<SitemapBuilder> getBuilders() {
+    protected Set<SitemapEntriesBuilder> getBuilders() {
         return HST_SITEMAP_BUILDER;
     }
 }

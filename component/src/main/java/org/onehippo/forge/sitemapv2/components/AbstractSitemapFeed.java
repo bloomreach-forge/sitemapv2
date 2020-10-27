@@ -16,7 +16,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
-import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.generator.DefaultSitemapGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
@@ -118,7 +118,7 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
      *
      * @return
      */
-    protected abstract Set<SitemapBuilder> getBuilders();
+    protected abstract Set<SitemapEntriesBuilder> getBuilders();
 
     protected SitemapGenerator getSitemapGenerator() {
         return new DefaultSitemapGenerator();

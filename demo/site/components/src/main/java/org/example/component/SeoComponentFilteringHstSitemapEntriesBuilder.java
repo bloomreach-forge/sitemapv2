@@ -3,9 +3,9 @@ package org.example.component;
 import java.util.Set;
 
 import org.onehippo.forge.sitemapv2.api.HstSitemapItemFilter;
-import org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder;
+import org.onehippo.forge.sitemapv2.builder.DefaultSitemapEntriesBuilder;
 
-public class SeoComponentFilteringHstSitemapBuilder extends DefaultSitemapBuilder {
+public class SeoComponentFilteringHstSitemapEntriesBuilder extends DefaultSitemapEntriesBuilder {
 
     private static final HstSitemapItemFilter SEO_COMPONENT_INDEX_FILTER = new SeoComponentIndexFilter();
 

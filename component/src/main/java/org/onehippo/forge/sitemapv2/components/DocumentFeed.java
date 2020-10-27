@@ -8,8 +8,8 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
-import org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
+import org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 public class DocumentFeed extends AbstractSitemapFeed {
 
     //Builder for document
-    private static final SitemapBuilder<DefaultSitemapFeedInfo> DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentSitemapBuilder();
+    private static final SitemapEntriesBuilder<DefaultSitemapFeedInfo> DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentSitemapEntriesBuilder();
     private static final Logger LOG = LoggerFactory.getLogger(DocumentFeed.class);
 
     @Override
@@ -27,7 +27,7 @@ public class DocumentFeed extends AbstractSitemapFeed {
     }
 
     @Override
-    protected Set<SitemapBuilder> getBuilders() {
+    protected Set<SitemapEntriesBuilder> getBuilders() {
         return Sets.newHashSet(DOCUMENT_SITEMAP_BUILDER);
     }
 }

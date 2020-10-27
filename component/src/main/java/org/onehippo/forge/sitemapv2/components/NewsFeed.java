@@ -8,9 +8,9 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
-import org.onehippo.forge.sitemapv2.builder.DefaultDocumentNewsSitemapBuilder;
+import org.onehippo.forge.sitemapv2.builder.DefaultDocumentNewsSitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.generator.SitemapNewsGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultNewsSitemapFeedInfo;
 
@@ -18,7 +18,7 @@ import org.onehippo.forge.sitemapv2.info.DefaultNewsSitemapFeedInfo;
 public class NewsFeed extends AbstractSitemapFeed {
 
     //Builder for document
-    private static final SitemapBuilder DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentNewsSitemapBuilder();
+    private static final SitemapEntriesBuilder DOCUMENT_SITEMAP_BUILDER = new DefaultDocumentNewsSitemapEntriesBuilder();
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
@@ -26,7 +26,7 @@ public class NewsFeed extends AbstractSitemapFeed {
     }
 
     @Override
-    protected Set<SitemapBuilder> getBuilders() {
+    protected Set<SitemapEntriesBuilder> getBuilders() {
         return Sets.newHashSet(DOCUMENT_SITEMAP_BUILDER);
     }
 

@@ -7,5 +7,8 @@ definitions:
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-pages.xml:
       hst:componentconfigurationid: hst:components/custom-page-feed
     /hst:hst/hst:configurations/hst:default/hst:sitemap/sitemap-news.xml:
+      jcr:primaryType: hst:sitemapitem
+      hst:hiddeninchannelmanager: true
+      hst:refId: sitemap-news
       hst:componentconfigurationid: hst:components/custom-document-news-feed
 

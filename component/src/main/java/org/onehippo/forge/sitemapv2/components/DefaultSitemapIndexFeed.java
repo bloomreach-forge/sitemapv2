@@ -19,8 +19,8 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.onehippo.forge.sitemapv2.components.model.sitemapindex.TSitemap;
 import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
+import org.onehippo.forge.sitemapv2.components.model.sitemapindex.TSitemap;
 import org.onehippo.forge.sitemapv2.generator.SitemapIndexGenerator;
 import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.slf4j.Logger;
@@ -85,7 +85,6 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                         TSitemap sitemap = new TSitemap();
                         HstLink hstLink = linkCreator.create(path, context.getResolvedMount().getMount());
                         sitemap.setLoc(hstLink.toUrlForm(context, true));
-                        //todo support for last modified?
                         generator.add(sitemap);
                     }
                 } catch (QueryException e) {
@@ -95,10 +94,9 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                 HstLink hstLink = linkCreator.create(siteMapItem, context.getResolvedMount().getMount());
                 TSitemap sitemap = new TSitemap();
                 sitemap.setLoc(hstLink.toUrlForm(context, true));
-                //todo support for last modified?
                 generator.add(sitemap);
             } else {
-                log.warn(siteMapItem.getId() + " should not be in the result set");
+                log.warn(siteMapItem.getId() + " should not be in the result set?");
             }
         };
     }

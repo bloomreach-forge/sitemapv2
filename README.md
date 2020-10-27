@@ -7,42 +7,79 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
   
 | CMS Version | Plugin Version | Notes  
 |---|---|---|  
-| 13.3 | 1.0.0 | initial release  
-| 14.3 | 2.0.0 | initial release 
+| 14.x | 2.0.0 | initial release 
   
-  # Installation   
-...
+# Installation   
+
+## Add the Forge repository configuration
+In the main pom.xml of the project, in the repositories section, add this repository if it is not configured there yet.
+
+    <repository>
+      <id>hippo-forge</id>
+      <name>Bloomreach Forge Maven 2 repository.</name>
+      <url>https://maven.onehippo.com/maven2-forge/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <layout>default</layout>
+    </repository>
+    
+## Add version property to the project pom
+
+In the root pom.xml of the project, in the properties section, add this property. For the correct version number, check the Release Notes section at the top.
   
-First install the project on your local repository  
-  
- mvn clean install  
+     <bloomreach.forge.sitemapv2.version>version.number</bloomreach.forge.sitemapv2.version>   
+ 
+## Maven Dependency
+
+Make sure you have the dependency definition in the root pom.xml of your project:
+
+    <dependencyManagement>
+      <dependencies>
+     
+        <dependency>
+          <groupId>org.onehippo.cms7</groupId>    
+          <artifactId>hippo-plugin-sitemapv2-component</artifactId> 
+          <version>${bloomreach.forge.sitemapv2.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.onehippo.cms7</groupId>    
+          <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId> 
+          <version>${bloomreach.forge.sitemapv2.version}</version>
+        </dependency>
+     
+      </dependencies>
+    </dependencyManagement>
+ 
 add the following dependency in the site/components pom.xml  
   
 
-    <dependency>     
-         <groupId>org.onehippo.cms7</groupId>    
-         <artifactId>hippo-plugin-sitemapv2-component</artifactId>    
-         <version>13.3.0</version>    
-     </dependency> 
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>    
+      <artifactId>hippo-plugin-sitemapv2-component</artifactId> 
+    </dependency>
 
   
 add the following dependency in the site/webapp pom.xml  
 
-     <dependency>     
-         <groupId>org.onehippo.cms7</groupId>    
-         <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId>    
-         <version>13.3.0</version>    
-      </dependency>  
+     <dependency>
+       <groupId>org.onehippo.cms7</groupId>    
+       <artifactId>hippo-plugin-sitemapv2-hcm-site</artifactId> 
+     </dependency> 
 
   
-  # Configuration    
+# Configuration    
     
  OOTB the following sitemap items are bootstrapped to hst:default:    
     
-- sitemap.xml (->forge-sitemapv2-default-feed)   
-- sitemap-index.xml (->forge-sitemapv2-default-index-feed)  
-- sitemap-pages.xml (->forge-sitemapv2-page-feed)  
-- sitemap-document-\_default\_.xml (-> forge-sitemapv2-document-feed)  
+- sitemap.xml --> forge-sitemapv2-default-feed  
+- sitemap-index.xml --> forge-sitemapv2-default-index-feed  
+- sitemap-pages.xml -->forge-sitemapv2-page-feed  
+- sitemap-document-\_default\_.xml --> forge-sitemapv2-document-feed  
     
 OOTB the following components are bootstrapped to hst:default :    
     
@@ -52,17 +89,17 @@ OOTB the following components are bootstrapped to hst:default :
 - forge-sitemapv2-page-feed (hstsitemap builder)  
 - forge-sitemapv2-document-feed (document builder)  
   
-## Builders  
+## Entry Builders  
   
 The sitemapv2 project consist of builder for building up entries in the sitemap.xml. All default builders are an implementation of:  
 
- `org.onehippo.forge.sitemapv2.api.SitemapBuilder`
+ `org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder`
 
-There are 2 main default builders:  
+There are 2 main default entry builders:  
   
-### HstSitemap  
+### Hst Sitemap Items (+ Pages)
   
- `org.onehippo.forge.sitemapv2.builder.DefaultSitemapBuilder  `
+ `org.onehippo.forge.sitemapv2.builder.DefaultSitemapEntriesBuilder  `
  
 This is the builder which will create sitemap entries in the sitemap.xml based on pages available from the HstSitemap (HST api), these are pages which are connected through a HST sitemap item. This includes pages inside and outside of the workspace.  
   
@@ -72,7 +109,7 @@ In the **component configuration** section you can tweak the hstsitemap builder
   
 ### Document  
 
- `org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapBuilder `
+ `org.onehippo.forge.sitemapv2.builder.DefaultDocumentSitemapEntriesBuilder `
  
 This is the builder which will create sitemap entries in the sitemap.xml based on documents which have a canonical link to particular pages (relative content path or through drag n drop components).  
   

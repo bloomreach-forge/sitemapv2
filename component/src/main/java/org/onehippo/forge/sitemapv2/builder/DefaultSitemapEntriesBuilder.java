@@ -21,7 +21,7 @@ import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.sitemapv2.api.HstSitemapItemFilter;
-import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
 import org.onehippo.forge.sitemapv2.components.model.Url;
 import org.onehippo.forge.sitemapv2.filter.DoesNotContainAnyFilter;
@@ -37,7 +37,7 @@ import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
+public class DefaultSitemapEntriesBuilder implements SitemapEntriesBuilder<DefaultSitemapFeedInfo> {
 
     private static final HstSitemapItemFilter isNotContainerResource = new IsNotContainerResourceFilter();
     private static final HstSitemapItemFilter isNotAny = new IsNotAnyFilter();
@@ -59,7 +59,7 @@ public class DefaultSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedI
             isNotSitemapXml,
             excludeRefIdFilter);
 
-    private static Logger log = LoggerFactory.getLogger(DefaultSitemapBuilder.class);
+    private static Logger log = LoggerFactory.getLogger(DefaultSitemapEntriesBuilder.class);
 
     @Override
     public void build(final HstRequest request, final DefaultSitemapFeedInfo componentInfo, final SitemapGenerator generator) {

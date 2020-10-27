@@ -17,7 +17,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.onehippo.forge.sitemapv2.api.SitemapBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
 import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
 import org.onehippo.forge.sitemapv2.components.model.Url;
 import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
@@ -26,11 +26,11 @@ import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultDocumentSitemapBuilder implements SitemapBuilder<DefaultSitemapFeedInfo> {
+public class DefaultDocumentSitemapEntriesBuilder implements SitemapEntriesBuilder<DefaultSitemapFeedInfo> {
 
     private static final int LIMIT_MAX = 1000;
     private static final String PUBLICTION_DATE_PROPERTY = "hippostdpubwf:publicationDate";
-    private static final Logger log = LoggerFactory.getLogger(DefaultDocumentSitemapBuilder.class);
+    private static final Logger log = LoggerFactory.getLogger(DefaultDocumentSitemapEntriesBuilder.class);
 
     @Override
     public void build(final HstRequest request, final DefaultSitemapFeedInfo componentInfo, final SitemapGenerator generator) {
