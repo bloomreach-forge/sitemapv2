@@ -1,8 +1,7 @@
 # Sitemap V2
 The sitemap v2 plugin is the successor to the original sitemap plugin https://documentation.bloomreach.com/14/library/concepts/plugins/sitemap/about.html.
-The Sitemap plugin is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
-The Sitemap plugin v2 is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
 
+The Sitemap plugin v2 is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
  
 # Release Notes  
   
