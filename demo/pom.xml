@@ -60,7 +60,7 @@
 
   <properties>
 
-    <cargo.jvm.args>-Xms2048m -Xmx2048m -XX:MaxPermSize=1024M</cargo.jvm.args>
+    <cargo.jvm.args>-Xms2048m -Xmx4096m -XX:MaxPermSize=2048M</cargo.jvm.args>
 
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
