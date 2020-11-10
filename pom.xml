@@ -33,10 +33,25 @@
   <inceptionYear>2020</inceptionYear>
 
   <scm>
-    <!--<connection>scm:git:https://code.onehippo.org/cms-community/hippo-plugin-sitemap.git</connection>-->
-    <!--<developerConnection>scm:git:git@code.onehippo.org:cms-community/hippo-plugin-sitemap.git</developerConnection>-->
-    <!--<url>https://code.onehippo.org/cms-community/hippo-plugin-sitemap</url>-->
+    <connection>scm:git:https://github.com/bloomreach-forge/sitemapv2.git</connection>
+    <developerConnection>scm:git:git@github.com/bloomreach-forge/sitemapv2.git</developerConnection>
+    <url>https://github.com/bloomreach-forge/sitemapv2</url>
   </scm>
+
+  <distributionManagement>
+    <repository>
+      <name>Hippo Maven 2 Forge Repository</name>
+      <id>hippo-maven2-forge</id>
+      <url>https://maven.onehippo.com/content/repositories/forge-releases/</url>
+      <uniqueVersion>false</uniqueVersion>
+    </repository>
+  </distributionManagement>
+
+  <issueManagement>
+    <system>Jira</system>
+    <url>https://issues.onehippo.com/browse/HIPFORGE</url>
+  </issueManagement>
+
 
   <properties>
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
@@ -118,14 +133,8 @@
       </releases>
     </repository>
   </repositories>
-  
-  <!--<issueManagement>-->
-    <!--<system>Jira</system>-->
-    <!--<url>https://issues.onehippo.com/browse/HIPPLUG/component/10856</url>-->
-  <!--</issueManagement>-->
 
 
-  
   <modules>
     <module>component</module>
     <module>hcm-site</module>
