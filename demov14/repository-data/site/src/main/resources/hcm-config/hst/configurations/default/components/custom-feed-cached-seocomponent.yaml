@@ -1,0 +1,11 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/custom-feed-cached-seocomponent:
+      jcr:primaryType: hst:component
+      hst:componentclassname: org.example.component.SeoComponentConfigCachedDefaultSitemapFeed
+      hst:parameternames: [query-limit, url-changeFrequency, url-priority, cache-expireAfterAccessDuration,
+        cache-expireAfterAccessTimeUnit, query-notPrimaryTypes, query-customJcrExpression,
+        cache-enabled]
+      hst:parametervalues: ['10000', WEEKLY, '1.0', '10', SECONDS, 'myproject:bannerdocument,selection:valuelist',
+        'not(@myproject:noindex) or @myproject:noindex=''false''', 'true']
+      hst:template: forge-sitemapv2-feed.ftl

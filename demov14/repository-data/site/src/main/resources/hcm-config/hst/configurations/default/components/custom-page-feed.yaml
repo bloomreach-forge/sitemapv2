@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/hst:default/hst:components/custom-page-feed:
+      jcr:primaryType: hst:component
+      hst:componentclassname: org.example.component.ExtendedHstSitemapItemsFeed
+      hst:template: forge-sitemapv2-feed.ftl
