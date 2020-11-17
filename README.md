@@ -221,7 +221,7 @@ Use the sitemap index sitemap item.
 | query-sortField | Field on how to sort the query |    
 | url-changeFrequency | URL priority in the sitemap feed i.e. 0.1, 0.2 ... 0.9 and 1.0 |    
 | url-changeFrequency | URL frequency in the sitemap feed i.e. ALWAYS, HOURLY, DAILY, WEEKLY, MONTHLY, YEARLY, NEVER |    
-| cache-enabled | Enable caching | false    
+| cache-enabled | Enable caching (2nd level) | false    
 | cache-maxSize | Specifies the maximum number of entries the cache may contain. Increase if there are more endpoints and more channels | 1    
 | cache-expireAfterAccessDuration | Specifies that each entry should be automatically removed from the cache once a fixed duration has elapsed after the entry's creation, the most recent replacement of its value, or its last access. | 1    
 | cache-expireAfterAccessTimeUnit | i.e. SECONDS, MINUTES, DAYS, MONTHS.. (See java.util.concurrent.TimeUnit) | DAYS    
