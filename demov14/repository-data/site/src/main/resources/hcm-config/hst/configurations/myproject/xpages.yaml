@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/myproject/hst:xpages:
+      jcr:primaryType: hst:xpages
+      jcr:uuid: b2cd2f66-6ad7-4aa5-8239-331ca4aec8be
+      /contentpage:
+        jcr:primaryType: hst:xpage
+        jcr:uuid: 3d11f6e5-2ed3-48ed-8633-9c70decf0f35
+        hst:label: Simple Content Page
+        hst:referencecomponent: hst:abstractpages/base
+        /main:
+          jcr:primaryType: hst:containercomponent
+          jcr:uuid: bf98905f-465c-4ab3-86cc-4478bc1dbb83
+          hippo:identifier: 04492033-ec8b-4f74-858a-79a9e1b644c8
+          hst:label: Content Page Main
+          hst:xtype: hst.vbox
+

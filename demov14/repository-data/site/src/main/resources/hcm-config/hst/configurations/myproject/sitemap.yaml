@@ -86,6 +86,13 @@ definitions:
         hst:componentconfigurationid: hst:pages/robotstxt
         hst:hiddeninchannelmanager: true
         hst:relativecontentpath: ../administration/robots
+      /xpages:
+        jcr:primaryType: hst:sitemapitem
+        jcr:uuid: 384cd1d7-d52f-430c-8e58-397978bf139e
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          jcr:uuid: 2824ff00-3323-4346-9237-df53ca474990
+          hst:relativecontentpath: xpages/${1}
       /content:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/contentlist
