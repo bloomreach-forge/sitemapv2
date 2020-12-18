@@ -29,6 +29,7 @@ import org.onehippo.forge.sitemapv2.filter.DoesNotContainDefaultFilter;
 import org.onehippo.forge.sitemapv2.filter.ExcludeRefIdFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotAnyFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotContainerResourceFilter;
+import org.onehippo.forge.sitemapv2.filter.IsNotIndexFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotRobotsTxtFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotSitemapXmlFilter;
 import org.onehippo.forge.sitemapv2.filter.IsNotWildCardFilter;
@@ -41,6 +42,7 @@ public class DefaultSitemapEntriesBuilder implements SitemapEntriesBuilder<Defau
 
     private static final HstSitemapItemFilter isNotContainerResource = new IsNotContainerResourceFilter();
     private static final HstSitemapItemFilter isNotAny = new IsNotAnyFilter();
+    private static final HstSitemapItemFilter isNotIndex = new IsNotIndexFilter();
     private static final HstSitemapItemFilter doesNotContainAny = new DoesNotContainAnyFilter();
     private static final HstSitemapItemFilter doesNotContainDefault = new DoesNotContainDefaultFilter();
     private static final HstSitemapItemFilter isNotWildCard = new IsNotWildCardFilter();
@@ -50,6 +52,7 @@ public class DefaultSitemapEntriesBuilder implements SitemapEntriesBuilder<Defau
     private static final Set<HstSitemapItemFilter> DEFAULT_HST_SITEMAP_ITEM_FILTERS = Sets.newHashSet(
             isNotContainerResource,
             isNotAny,
+            isNotIndex,
             doesNotContainAny,
             doesNotContainDefault,
             isNotWildCard,
