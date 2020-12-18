@@ -1,7 +1,5 @@
 package org.onehippo.forge.sitemapv2.info;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import org.hippoecm.hst.core.parameters.DropDownList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
@@ -9,6 +7,12 @@ public interface DefaultSitemapFeedInfo {
 
     String ASC = "asc";
     String DESC = "desc";
+
+    @Parameter(name = "query-scopes")
+    String getScopes();
+
+    @Parameter(name = "query-exclude-scopes")
+    String getExcludeScopes();
 
     @Parameter(name = "query-limit", defaultValue = "200")
     Integer getQueryLimit();

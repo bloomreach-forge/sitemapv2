@@ -1,18 +1,24 @@
 package org.onehippo.forge.sitemapv2.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.FilterException;
 import org.hippoecm.hst.content.beans.query.filter.Filter;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.util.PathUtils;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Strings;
 
 public class QueryUtil {
 
@@ -24,6 +30,8 @@ public class QueryUtil {
 
     @SuppressWarnings("HippoHstFilterInspection")
     public static HstQuery constructQueryFromArgs(final HstRequest request,
+                                                  final String scopes,
+                                                  final String excludeScopes,
                                                   final int limit,
                                                   final int queryLimit,
                                                   final int offset,
@@ -36,8 +44,11 @@ public class QueryUtil {
 
     ) {
         HstRequestContext context = request.getRequestContext();
+        HippoBean[] beanScopes = getBeanScopes(context, scopes);
+        HippoBean[] beanExcludeScopes = getBeanScopes(context, excludeScopes);
         HstQueryBuilder hstQueryBuilder = HstQueryBuilder
-                .create(context.getSiteContentBaseBean())
+                .create(beanScopes.length > 0 ? beanScopes : new HippoBean[]{context.getSiteContentBaseBean()})
+                .excludeScopes(beanExcludeScopes.length > 0 ? beanExcludeScopes : null)
                 .limit(queryLimit > limit ? limit : queryLimit)
                 .offset(offset);
 
@@ -77,6 +88,27 @@ public class QueryUtil {
         return query;
     }
 
+    private static HippoBean[] getBeanScopes(final HstRequestContext context, final String scopes){
+        if(StringUtils.isNotBlank(scopes)) {
+            final String[] stringScopes = MatcherUtils.getCommaSeparatedValues(scopes);
+            final HippoBean siteBean = context.getSiteContentBaseBean();
+            List<HippoBean> scopeBeansList = new ArrayList<>();
+
+            for(String scope: stringScopes){
+                if (!Strings.isNullOrEmpty(scope)) {
+                    final String scopePath = PathUtils.normalizePath(scope);
+                    log.debug("Looking for bean {}", scopePath);
+                    HippoBean beanScope = siteBean.getBean(scopePath);
+                    if (beanScope != null) {
+                        scopeBeansList.add(beanScope);
+                    }
+                }
+            }
+            return scopeBeansList.toArray(new HippoBean[0]);
+        }
+        return new HippoBean[]{};
+    }
+
     private static final Filter getFilter(final HstQuery query) {
         Filter filter = (Filter)query.getFilter();
         if (filter == null) {
@@ -88,6 +120,8 @@ public class QueryUtil {
 
     public static HstQuery constructQueryFromComponentInfo(final HstRequest request, final int limit, final DefaultSitemapFeedInfo componentInfo) {
         return constructQueryFromArgs(request,
+                componentInfo.getScopes(),
+                componentInfo.getExcludeScopes(),
                 limit,
                 componentInfo.getQueryLimit(),
                 componentInfo.getQueryOffset(),

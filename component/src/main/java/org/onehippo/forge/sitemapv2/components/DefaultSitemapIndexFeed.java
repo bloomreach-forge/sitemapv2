@@ -58,6 +58,8 @@ public class DefaultSitemapIndexFeed extends BaseHstComponent {
                 Map<String, String> parameters = componentConfiguration.getParameters();
 
                 HstQuery hstQuery = QueryUtil.constructQueryFromArgs(request,
+                        parameters.get("query-scopes"),
+                        parameters.get("query-exclude-scopes"),
                         1,
                         1,
                         0,
