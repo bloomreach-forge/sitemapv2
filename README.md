@@ -7,7 +7,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
   
 | CMS Version | Plugin Version | Notes  
 |---|---|---|  
-| 14.x | 2.0.0 | initial release 
+| 14.x | 2.0.1 | initial release 
   
 # Installation   
 
@@ -211,8 +211,8 @@ Use the sitemap index sitemap item.
     
 | property | use | default |    
 |---|---|---|    
-| query-scopes (since v2.0.1 tbr) | define comma separated list of paths relative to site root content path for query scope | site root content path eg. content/documents/myproject
-| query-exclude-scopes (since v2.0.1 tbr) | define comma separated list of paths relative to site content path to be excluded from query scope |
+| query-scopes (since v2.0.1) | define comma separated list of paths relative to site root content path for query scope | site root content path eg. content/documents/myproject
+| query-exclude-scopes (since v2.0.1) | define comma separated list of paths relative to site content path to be excluded from query scope |
 | query-limit  | set a limit on the document feed query, maximum value is 1000  | 200 |    
 | query-offset | set an offset on the document feed query. | 0    
 | query-ofTypes | filter query where subtypes are included. |    
