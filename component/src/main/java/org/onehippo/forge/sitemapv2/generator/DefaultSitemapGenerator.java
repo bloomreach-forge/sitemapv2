@@ -72,4 +72,8 @@ public class DefaultSitemapGenerator implements SitemapGenerator<Url> {
     public void add(final Url url) {
         urls.add(url);
     }
+
+    public Urlset getUrls() {
+        return urls;
+    }
 }
