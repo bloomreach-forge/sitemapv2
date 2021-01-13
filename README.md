@@ -7,7 +7,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
   
 | CMS Version | Plugin Version | Notes  
 |---|---|---|  
-| 14.x | 2.0.1 | initial release 
+| 14.x | 2.0.2 | initial release 
   
 # Installation   
 
@@ -230,6 +230,37 @@ Use the sitemap index sitemap item.
     
 **note:** All properties prefixed with "query-" are applicable for the document builder. All other properties all applicable for the document builder and the HstSitemap builder  
     
+## Extra: Structural site map representation component (since v2.0.2)
+If required to develop a page in which the sitemap is represented in a structural way preserving hierarchy
+![sitemap](images/structural-sitemap.png)
+
+you can configure a component similar to the below. The component supports the same properties from the section Component Configuration above.
+```yaml
+/sitemap:
+  jcr:primaryType: hst:component
+  hst:componentclassname: org.onehippo.forge.sitemapv2.components.StructuredDocumentFeed
+  hst:template: sitemap-structure
+  hst:parameternames: [query-scopes]
+  hst:parametervalues: ['content, news/banner']
+```
+Example of a freemarker macro traversing the provided structure
+```ftl
+<#macro sitemapTraverse node>
+    <#if node.name!="root">
+        <li>
+            <a <#if node.data??>href="${node.data}"</#if> title="${node.name}">
+                ${node.name}
+            </a>
+        </li>
+    </#if>
+    <ul>
+        <#list node.children as name, child>
+            <@sitemapTraverse child />
+        </#list>
+    </ul>
+</#macro>
+```
+You can use the provided component as is, extend/customise or use as an implementation reference.  
 # Extending    
  See demo project for examples on extending. In the demo project there is a case implemented where it will check a specific component and property set on a landing page to exclude it from the sitemap xml. In the demo project there is also an example of excluding document types from the feed but also properties on a document (see author document type, filtered if a boolean is checked).    
     
