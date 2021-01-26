@@ -27,7 +27,7 @@
   <groupId>org.onehippo.cms7</groupId>
   <artifactId>hippo-plugin-sitemapv2</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 
   <inceptionYear>2020</inceptionYear>
 
@@ -138,7 +138,6 @@
   <modules>
     <module>component</module>
     <module>hcm-site</module>
-    <module>demov12</module>
   </modules>
 
 </project>
