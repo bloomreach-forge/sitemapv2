@@ -1,0 +1,5 @@
+group: 
+  name: demov12
+  after: hippo-cms
+project: demov12
+module: demov12-repository-data-webfiles

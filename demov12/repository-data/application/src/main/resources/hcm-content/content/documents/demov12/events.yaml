@@ -1,0 +1,145 @@
+/content/documents/demov12/events:
+  .meta:order-before: content
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+  jcr:uuid: 001d6852-853b-4743-8bf4-7128b116b0de
+  hippostd:foldertype: [new-events-document, new-events-folder]
+  hippotranslation:id: 32058fd2-beab-4f67-9c79-d0158d9355c4
+  hippotranslation:locale: en
+  /2021:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+    jcr:uuid: c446e499-5427-4bc1-bc87-20b78b4fb568
+    hippostd:foldertype: [new-events-document, new-events-folder]
+    hippotranslation:id: ebaa75e8-b32b-4987-a697-ec5a356ed784
+    hippotranslation:locale: en
+    /01:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 437f3f78-ef59-46ec-b2bf-e58b5b87a860
+      hippostd:foldertype: [new-events-document, new-events-folder]
+      hippotranslation:id: a45ec1f7-e6e9-4e80-a4a9-de7fc88c0d78
+      hippotranslation:locale: en
+      /breakfast:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: b8f5eb45-7200-452a-b26e-3118a0dc60b8
+        hippo:name: Breakfast
+        /breakfast:
+          jcr:primaryType: demov12:eventsdocument
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 121fb115-323f-4a7c-9ffe-ca3bc7f8c413
+          demov12:date: 2013-11-12T08:00:00+01:00
+          demov12:documenttype: event
+          demov12:enddate: 2022-01-26T15:47:00+01:00
+          demov12:introduction: Start the day with a nice breakfast.
+          demov12:location: Room 101
+          demov12:title: Breakfast
+          hippo:availability: [live, preview]
+          hippostd:holder: admin
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2013-11-12T11:00:00+01:00
+          hippostdpubwf:lastModificationDate: 2013-11-12T11:11:00+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
+          hippotranslation:id: bab4e94d-b6e2-4857-8a85-cf6698a0661e
+          hippotranslation:locale: en
+          /demov12:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <html>
+                        <body>
+
+                        <p>Breakfast is served starting from 8:00 until 9:30.</p>
+
+                        </body>
+                        </html>
+          /demov12:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: c8f03498-56eb-46c9-83b2-cf014f2e03d7
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /introduction-speech:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 18e36c35-429d-4fee-b76e-eeabcbfc08bb
+        hippo:name: Introduction speech
+        /introduction-speech:
+          jcr:primaryType: demov12:eventsdocument
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: fb9786d0-00ad-4a62-93ce-6a5ae422907a
+          demov12:date: 2013-11-12T10:00:00+01:00
+          demov12:documenttype: event
+          demov12:enddate: 2022-01-26T15:47:00+01:00
+          demov12:introduction: After breakfast there will be an introductory speech.
+          demov12:location: Room 400
+          demov12:title: Introduction speech
+          hippo:availability: [live, preview]
+          hippostd:holder: admin
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2013-11-12T11:02:00+01:00
+          hippostdpubwf:lastModificationDate: 2013-11-12T11:16:00+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
+          hippotranslation:id: 80d789e2-5c72-423e-bc7e-1fc9c013d35e
+          hippotranslation:locale: en
+          /demov12:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <html>
+                        <body>
+
+                        <p>Speech will be about the workshop.</p>
+
+                        </body>
+                        </html>
+          /demov12:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: 9f32434e-84e3-4150-a6f2-d89a67be2fb1
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /workshop:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7a29ec60-2689-48b2-aca2-49696c5c23eb
+        /workshop:
+          jcr:primaryType: demov12:eventsdocument
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 97677c37-fb08-4019-8423-bd9293083610
+          demov12:date: 2013-11-12T13:00:00+01:00
+          demov12:documenttype: event
+          demov12:enddate: 2022-01-26T15:47:00+01:00
+          demov12:introduction: Workshop starts at 1:00
+          demov12:location: Room 600
+          demov12:title: Workshop
+          hippo:availability: [live, preview]
+          hippostd:holder: admin
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2013-11-12T11:16:00+01:00
+          hippostdpubwf:lastModificationDate: 2013-11-12T11:18:00+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2013-11-12T12:16:00+01:00
+          hippotranslation:id: a9fae40e-59e9-4bf2-a735-ea8b87888999
+          hippotranslation:locale: en
+          /demov12:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <html>
+                        <body>
+                        <strong>Everybody </strong>
+                        <p>can join the workshop and start practicing what they learned during the last
+                        week.</p>
+
+                        </body>
+                        </html>
+          /demov12:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: d035387b-f9ce-49f6-bcb0-9ab6915a2d5f
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []

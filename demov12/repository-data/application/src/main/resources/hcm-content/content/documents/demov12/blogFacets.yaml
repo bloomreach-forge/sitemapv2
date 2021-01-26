@@ -1,0 +1,15 @@
+/content/documents/demov12/blogFacets:
+  jcr:primaryType: hippofacnav:facetnavigation
+  hippo:docbase: 5b6e53c1-3384-4052-bd31-6b454bf74d59
+  hippofacnav:facetnodenames: [Authors, Categories, Tags, Date]
+  hippofacnav:facets: ['demov12:authornames', 'demov12:categories', 'hippostd:tags',
+    "demov12:publicationdate$[\n                {name:'Last 7 days',resolution:'day',\
+      \ begin:-6, end:1},\n                {name:'Last month',resolution:'day', begin:-30,\
+      \ end:1},\n                {name:'Last 3 months',resolution:'day', begin:-91,\
+      \ end:1},\n                {name:'Last 6 months',resolution:'day', begin:-182,\
+      \ end:1},\n                {name:'Last year',resolution:'day', begin:-365, end:1}\n\
+      \                ]"]
+  hippofacnav:filters: ['jcr:primaryType = demov12:blogpost']
+  hippofacnav:limit: 100
+  hippofacnav:sortby: ['demov12:publicationdate']
+  hippofacnav:sortorder: [descending]

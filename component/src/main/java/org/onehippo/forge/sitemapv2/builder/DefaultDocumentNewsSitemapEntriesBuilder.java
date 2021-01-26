@@ -63,12 +63,12 @@ public class DefaultDocumentNewsSitemapEntriesBuilder implements SitemapEntriesB
                 url.setLoc(loc);
                 try {
                     if (bean.getNode().hasProperty(PUBLICATION_DATE_PROPERTY)) {
-                        Calendar lastMod = bean.getSingleProperty(PUBLICATION_DATE_PROPERTY);
+                        Calendar lastMod = bean.getProperty(PUBLICATION_DATE_PROPERTY);
                         url.setLastmod(lastMod);
                     }
 
                     if (bean.getNode().hasProperty(TRANSLATION_PROPERTY_LOCALE)) {
-                        String locale = bean.getSingleProperty(TRANSLATION_PROPERTY_LOCALE);
+                        String locale = bean.getProperty(TRANSLATION_PROPERTY_LOCALE);
                         url.setPublication(componentInfo.getPublicationName(), locale);
 
                     } else {
@@ -76,7 +76,7 @@ public class DefaultDocumentNewsSitemapEntriesBuilder implements SitemapEntriesB
                     }
 
                     if (StringUtils.isNotEmpty(componentInfo.getNewsTitlePropertyMapping()) && bean.getNode().hasProperty(componentInfo.getNewsTitlePropertyMapping())) {
-                        String title = bean.getSingleProperty(componentInfo.getNewsTitlePropertyMapping());
+                        String title = bean.getProperty(componentInfo.getNewsTitlePropertyMapping());
                         url.setTitle(title);
                     } else {
                         url.setTitle(bean.getDisplayName());
