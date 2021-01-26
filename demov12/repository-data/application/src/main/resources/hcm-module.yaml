@@ -1,0 +1,6 @@
+group: 
+  name: demov12
+  after: hippo-cms
+project: demov12
+module:
+  name: demov12-repository-data-application

@@ -1,0 +1,316 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:types/demov12:bannerdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Content
+        demov12:image: Image
+        demov12:link: Link
+        demov12:title: Title
+        jcr:name: Banner
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Inhoud
+        demov12:image: Afbeelding
+        demov12:link: Link
+        demov12:title: Titel
+        jcr:name: Banner
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Contenu
+        demov12:image: Image
+        demov12:link: Lien
+        demov12:title: Titre
+        jcr:name: Bannière
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Inhalt
+        demov12:image: Abbildung
+        demov12:link: Link
+        demov12:title: Titel
+        jcr:name: Banner
+    /hippo:configuration/hippo:translations/hippo:types/demov12:blogpost:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:authors: Author(s)
+        demov12:authors#hint: Link to author document(s)
+        demov12:categories: Categories
+        demov12:content: Content
+        demov12:introduction: Introduction
+        demov12:publicationdate: Publication Date
+        demov12:title: Title
+        jcr:name: Blog Post
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:authors: Auteur(s)
+        demov12:authors#hint: Link naar auteur document(en)
+        demov12:categories: Categorieën
+        demov12:content: Inhoud
+        demov12:introduction: Introductie
+        demov12:publicationdate: Publicatiedatum
+        demov12:title: Titel
+        jcr:name: Blogpost
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:authors: Auteur(s)
+        demov12:authors#hint: Lien vers le(s) document(s) de l'auteur
+        demov12:categories: Catégories
+        demov12:content: Contenu
+        demov12:introduction: Introduction
+        demov12:publicationdate: Date de publication
+        demov12:title: Titre
+        jcr:name: Post blog
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:authors: Verfasser
+        demov12:authors#hint: Link zu Verfasserdokument(en)
+        demov12:categories: Kategorien
+        demov12:content: Inhalt
+        demov12:introduction: Einführung
+        demov12:publicationdate: Publikationsdatum
+        demov12:title: Titel
+        jcr:name: Blog-Post
+    /hippo:configuration/hippo:translations/hippo:types/demov12:author:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:accounts: Accounts
+        demov12:accounts#hint: External social media accounts
+        demov12:content: Description
+        demov12:content#hint: Information about the author
+        demov12:fullname: Name
+        demov12:fullname#hint: Full name
+        demov12:photo: Photo
+        demov12:photo#hint: Photo of the author
+        demov12:role: Role
+        jcr:name: Author
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:accounts: Accounts
+        demov12:accounts#hint: Externe social media accounts
+        demov12:content: Beschrijving
+        demov12:content#hint: Informatie over de auteur
+        demov12:fullname: Naam
+        demov12:fullname#hint: Volledige naam
+        demov12:photo: Foto
+        demov12:photo#hint: Foto van de auteur
+        demov12:role: Rol
+        jcr:name: Auteur
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:accounts: Konten
+        demov12:accounts#hint: Comptes médias sociaux externes
+        demov12:content: Description
+        demov12:content#hint: Informations sur l'auteur
+        demov12:fullname: Nom
+        demov12:fullname#hint: Nom complet
+        demov12:photo: Photo
+        demov12:photo#hint: Photo de l'auteur
+        demov12:role: Rôle
+        jcr:name: Auteur
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:accounts: Comptes
+        demov12:accounts#hint: Externe Konten soziale Medien
+        demov12:content: Beschreibung
+        demov12:content#hint: Informationen über den Verfasser
+        demov12:fullname: Name
+        demov12:fullname#hint: Vollständiger Name
+        demov12:photo: Foto
+        demov12:photo#hint: Foto des Verfassers
+        demov12:role: Rolle
+        jcr:name: Verfasser
+    /hippo:configuration/hippo:translations/hippo:types/demov12:account:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:link: Link
+        demov12:link#hint: External link to the account
+        demov12:type: Type
+        jcr:name: Account (Compound)
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:link: Link
+        demov12:link#hint: Externe link naar het account
+        demov12:type: Soort
+        jcr:name: Account (Compound)
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:link: Lien
+        demov12:link#hint: Lien externe vers le compte
+        demov12:type: Type
+        jcr:name: Compte (Compound)
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:link: Link
+        demov12:link#hint: Externer Link zum Konto
+        demov12:type: Art
+        jcr:name: Konto (Compound)
+    /hippo:configuration/hippo:translations/hippo:types/demov12:eventsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Content
+        demov12:date: Start date
+        demov12:enddate: End date
+        demov12:image: Image
+        demov12:introduction: Introduction
+        demov12:location: Location
+        demov12:title: Title
+        jcr:name: Event
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Inhoud
+        demov12:date: Startdatum
+        demov12:enddate: Einddatum
+        demov12:image: Afbeelding
+        demov12:introduction: Introductie
+        demov12:location: Locatie
+        demov12:title: Titel
+        jcr:name: Evenement
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Contenu
+        demov12:date: Date de début
+        demov12:enddate: Date de fin
+        demov12:image: Image
+        demov12:introduction: Introduction
+        demov12:location: Lieu
+        demov12:title: Titre
+        jcr:name: Événement
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Inhalt
+        demov12:date: Startdatum
+        demov12:enddate: Enddatum
+        demov12:image: Abbildung
+        demov12:introduction: Einführung
+        demov12:location: Standort
+        demov12:title: Titel
+        jcr:name: Event
+    /hippo:configuration/hippo:translations/hippo:types/demov12:faqitem:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:answer: Answer
+        demov12:question: Question
+        jcr:name: FAQ Item
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:answer: Antwoord
+        demov12:question: Vraag
+        jcr:name: FAQ Item
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:answer: Réponse
+        demov12:question: Question
+        jcr:name: Élément de FAQ
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:answer: Antwort
+        demov12:question: Frage
+        jcr:name: FAQ-Item
+    /hippo:configuration/hippo:translations/hippo:types/demov12:faqlist:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:description: Description
+        demov12:faqitem: FAQ items
+        demov12:title: Title
+        jcr:name: FAQ List
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:description: Beschrijving
+        demov12:faqitem: FAQ items
+        demov12:title: Titel
+        jcr:name: FAQ Lijst
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:description: Description
+        demov12:faqitem: Éléments de FAQ
+        demov12:title: Titre
+        jcr:name: Liste de FAQ
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:description: Beschreibung
+        demov12:faqitem: FAQ-Items
+        demov12:title: Titel
+        jcr:name: FAQ-Liste
+    /hippo:configuration/hippo:translations/hippo:types/demov12:newsdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:author: Author
+        demov12:content: Content
+        demov12:date: Date
+        demov12:image: Image
+        demov12:introduction: Introduction
+        demov12:location: Location
+        demov12:source: Source
+        demov12:title: Title
+        jcr:name: News Item
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:author: Auteur
+        demov12:content: Inhoud
+        demov12:date: Datum
+        demov12:image: Afbeelding
+        demov12:introduction: Introductie
+        demov12:location: Locatie
+        demov12:source: Bron
+        demov12:title: Titel
+        jcr:name: Nieuwsbericht
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:author: Verfasser
+        demov12:content: Inhalt
+        demov12:date: Datum
+        demov12:image: Abbildung
+        demov12:introduction: Einführung
+        demov12:location: Standort
+        demov12:source: Quelle
+        demov12:title: Titel
+        jcr:name: News
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:author: Auteur
+        demov12:content: Contenu
+        demov12:date: Date
+        demov12:image: Image
+        demov12:introduction: Introduction
+        demov12:location: Lieu
+        demov12:source: Source
+        demov12:title: Titre
+        jcr:name: Message d'info
+    /hippo:configuration/hippo:translations/hippo:types/demov12:contentdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Content
+        demov12:introduction: Introduction
+        demov12:publicationdate: Publication date
+        demov12:title: Title
+        jcr:name: Simple Document
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Inhoud
+        demov12:introduction: Introductie
+        demov12:publicationdate: Publicatiedatum
+        demov12:title: Titel
+        jcr:name: Eenvoudig Document
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Contenu
+        demov12:introduction: Introduction
+        demov12:publicationdate: Date de publication
+        demov12:title: Titre
+        jcr:name: Document simple
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        demov12:content: Inhalt
+        demov12:introduction: Einführung
+        demov12:publicationdate: Publikationsdatum
+        demov12:title: Titel
+        jcr:name: Einfaches Dokument

@@ -1,7 +1,0 @@
-/hst:hst/hst:configurations/myproject/hst:workspace/hst:containers/homepage/main/google-maps:
-  .meta:order-before: banner
-  jcr:primaryType: hst:containeritemcomponent
-  hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsGoogleMapsComponent
-  hst:iconpath: images/essentials/catalog-component-icons/googlemaps.svg
-  hst:label: Google Maps
-  hst:template: essentials-googlemaps

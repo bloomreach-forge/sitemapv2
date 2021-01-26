@@ -1,5 +1,5 @@
 # Sitemap V2
-The sitemap v2 plugin is the successor to the original sitemap plugin https://documentation.bloomreach.com/14/library/concepts/plugins/sitemap/about.html.
+The sitemap v2 plugin is the successor of the original sitemap plugin https://documentation.bloomreach.com/14/library/concepts/plugins/sitemap/about.html.
 
 The Sitemap plugin v2 is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
  
@@ -7,6 +7,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
   
 | CMS Version | Plugin Version | Notes  
 |---|---|---|  
+| 12.x | 1.0.2 | backport for hippo cms 12.x
 | 14.x | 2.0.2 | initial release 
   
 # Installation   
@@ -55,7 +56,7 @@ Make sure you have the dependency definition in the root pom.xml of your project
       </dependencies>
     </dependencyManagement>
  
-add the following dependency in the site/components pom.xml  
+add the following dependency in the `site/components/pom.xml` (`site/pom.xml` module for Hippo 12)  
   
 
     <dependency>
@@ -64,7 +65,7 @@ add the following dependency in the site/components pom.xml
     </dependency>
 
   
-add the following dependency in the site/webapp pom.xml  
+add the following dependency in the `site/webapp/pom.xml`  
 
      <dependency>
        <groupId>org.onehippo.cms7</groupId>    

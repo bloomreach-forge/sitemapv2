@@ -1,0 +1,36 @@
+<'demov12'='http://www.onehippo.org/demov12/nt/1.0'>
+<'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.4'>
+<'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
+<'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+<'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
+
+[demov12:account] > hippo:compound, hippostd:relaxed
+  orderable
+
+[demov12:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
+  orderable
+
+[demov12:author] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:bannerdocument] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:blogpost] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:contentdocument] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:eventsdocument] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:faqitem] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:faqlist] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+
+[demov12:newsdocument] > demov12:basedocument, hippostd:relaxed, hippotranslation:translated
+  orderable
+

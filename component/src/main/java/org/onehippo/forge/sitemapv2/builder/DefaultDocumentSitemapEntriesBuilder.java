@@ -67,7 +67,7 @@ public class DefaultDocumentSitemapEntriesBuilder implements SitemapEntriesBuild
                 url.setLoc(loc);
                 try {
                     if (bean.getNode().hasProperty(PUBLICTION_DATE_PROPERTY)) {
-                        Calendar lastMod = bean.getSingleProperty(PUBLICTION_DATE_PROPERTY);
+                        Calendar lastMod = bean.getProperty(PUBLICTION_DATE_PROPERTY);
                         url.setLastmod(lastMod);
                     }
                 } catch (RepositoryException e) {

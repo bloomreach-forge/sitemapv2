@@ -18,8 +18,8 @@
 
   <parent>
     <groupId>org.onehippo.cms7</groupId>
-    <artifactId>hippo-cms7-project</artifactId>
-    <version>14.3.3</version>
+    <artifactId>hippo-cms7-release</artifactId>
+    <version>12.6.14</version>
   </parent>
 
   <name>Hippo Plugin SitemapV2</name>
@@ -27,7 +27,7 @@
   <groupId>org.onehippo.cms7</groupId>
   <artifactId>hippo-plugin-sitemapv2</artifactId>
   <packaging>pom</packaging>
-  <version>2.0.3-SNAPSHOT</version>
+  <version>1.0.2-SNAPSHOT</version>
 
   <inceptionYear>2020</inceptionYear>
 
@@ -57,51 +57,51 @@
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Plugin Sitemap V2</notice.project.name>
 
-    <hippo.hst.version>14.3.3</hippo.hst.version>
-    <hippo.repository.version>14.3.3</hippo.repository.version>
-    <hippo.commons.version>14.3.3</hippo.commons.version>
+<!--    <hippo.hst.version>14.3.3</hippo.hst.version>-->
+<!--    <hippo.repository.version>14.3.3</hippo.repository.version>-->
+<!--    <hippo.commons.version>14.3.3</hippo.commons.version>-->
     <junit.version>4.12</junit.version>
     <easymock.version>4.2</easymock.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-        <artifactId>hst-site-dependencies</artifactId>
-        <version>${hippo.hst.version}</version>
-        <type>pom</type>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.onehippo.cms7.hst.dependencies</groupId>-->
+<!--        <artifactId>hst-site-dependencies</artifactId>-->
+<!--        <version>${hippo.hst.version}</version>-->
+<!--        <type>pom</type>-->
+<!--      </dependency>-->
 
       <!-- since we do not have release pom, we must mark hst-api explicitly as provided -->
-      <dependency>
-        <groupId>org.onehippo.cms7.hst</groupId>
-        <artifactId>hst-api</artifactId>
-        <version>${hippo.hst.version}</version>
-        <scope>provided</scope>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.onehippo.cms7.hst</groupId>-->
+<!--        <artifactId>hst-api</artifactId>-->
+<!--        <version>${hippo.hst.version}</version>-->
+<!--        <scope>provided</scope>-->
+<!--      </dependency>-->
 
-      <dependency>
-        <groupId>org.onehippo.cms7</groupId>
-        <artifactId>hippo-cms7-commons</artifactId>
-        <version>${hippo.commons.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <!-- For HippoNodeType constants -->
-      <dependency>
-        <groupId>org.onehippo.cms7</groupId>
-        <artifactId>hippo-repository-api</artifactId>
-        <version>${hippo.repository.version}</version>
-        <scope>provided</scope>
-      </dependency>
+<!--      <dependency>-->
+<!--        <groupId>org.onehippo.cms7</groupId>-->
+<!--        <artifactId>hippo-cms7-commons</artifactId>-->
+<!--        <version>${hippo.commons.version}</version>-->
+<!--        <scope>provided</scope>-->
+<!--      </dependency>-->
+<!--      &lt;!&ndash; For HippoNodeType constants &ndash;&gt;-->
+<!--      <dependency>-->
+<!--        <groupId>org.onehippo.cms7</groupId>-->
+<!--        <artifactId>hippo-repository-api</artifactId>-->
+<!--        <version>${hippo.repository.version}</version>-->
+<!--        <scope>provided</scope>-->
+<!--      </dependency>-->
 
-      <!-- For HippoStdNodeType constants -->
-      <dependency>
-        <groupId>org.onehippo.cms7</groupId>
-        <artifactId>hippo-repository-builtin</artifactId>
-        <version>${hippo.repository.version}</version>
-        <scope>provided</scope>
-      </dependency>
+<!--      &lt;!&ndash; For HippoStdNodeType constants &ndash;&gt;-->
+<!--      <dependency>-->
+<!--        <groupId>org.onehippo.cms7</groupId>-->
+<!--        <artifactId>hippo-repository-builtin</artifactId>-->
+<!--        <version>${hippo.repository.version}</version>-->
+<!--        <scope>provided</scope>-->
+<!--      </dependency>-->
 
       <dependency>
         <groupId>junit</groupId>
@@ -138,6 +138,7 @@
   <modules>
     <module>component</module>
     <module>hcm-site</module>
+    <module>demov12</module>
   </modules>
 
 </project>
