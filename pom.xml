@@ -138,7 +138,6 @@
   <modules>
     <module>component</module>
     <module>hcm-site</module>
-    <module>demov12</module>
   </modules>
 
 </project>
