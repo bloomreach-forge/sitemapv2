@@ -1,3 +1,3 @@
-# SPA Aware
+# SPA Aware Proxy
 
 
