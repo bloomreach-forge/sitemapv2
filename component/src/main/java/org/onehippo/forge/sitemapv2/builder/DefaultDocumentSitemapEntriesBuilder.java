@@ -1,13 +1,6 @@
 package org.onehippo.forge.sitemapv2.builder;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.function.Function;
-
-import javax.jcr.RepositoryException;
-
 import com.google.common.collect.Streams;
-
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -18,13 +11,19 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.sitemapv2.api.SitemapEntriesBuilder;
+import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.components.model.ChangeFrequency;
 import org.onehippo.forge.sitemapv2.components.model.Url;
-import org.onehippo.forge.sitemapv2.api.SitemapGenerator;
 import org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo;
 import org.onehippo.forge.sitemapv2.util.QueryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.jcr.RepositoryException;
+import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Objects;
+import java.util.function.Function;
 
 public class DefaultDocumentSitemapEntriesBuilder implements SitemapEntriesBuilder<DefaultSitemapFeedInfo> {
 
@@ -49,6 +48,7 @@ public class DefaultDocumentSitemapEntriesBuilder implements SitemapEntriesBuild
 
             Streams.stream(hippoBeans)
                     .map(getUrlMapper(context, componentInfo))
+                    .filter(Objects::nonNull)
                     .forEach(generator::add);
         } catch (QueryException e) {
             log.error("A QueryException occurred with message: {}.\n See debug log for more details.", e.getMessage());
