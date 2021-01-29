@@ -138,6 +138,7 @@
   <modules>
     <module>component</module>
     <module>hcm-site</module>
+<!--    <module>demov14</module>-->
   </modules>
 
 </project>

@@ -5,3 +5,4 @@
 /demov14/essentials/overlays
 *.DS_Store
 
+/demov14/react-csr/node_modules/
