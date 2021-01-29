@@ -1,0 +1,74 @@
+/content/documents/myproject/about:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 8a7a1114-3a5f-472b-a222-f764d784770d
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 3eb03c57-e823-4782-9294-9db54686b8d8
+  hippotranslation:locale: en
+  /about-us:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: d9aafb7e-44a2-4c89-8ad5-f76e628c1e0a
+    hippo:name: About us
+    hippo:versionHistory: 67abc9da-da5f-4665-afd7-682c0a8c37ff
+    /about-us[1]:
+      jcr:primaryType: myproject:contentdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 23181674-f593-4b20-a958-961c2f2f4125
+      hippo:availability: []
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-01-29T14:30:44.782+01:00
+      hippostdpubwf:lastModificationDate: 2021-01-29T14:30:44.782+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 16af47ae-0cce-4e64-a19d-61c33d77dd33
+      hippotranslation:locale: en
+      myproject:introduction: ''
+      myproject:publicationdate: 2021-01-29T14:30:00+01:00
+      myproject:title: About us
+      /myproject:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /about-us[2]:
+      jcr:primaryType: myproject:contentdocument
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: be565f1c-d11e-4bc2-b1d7-de1c42a659a8
+      hippo:availability: [preview]
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-01-29T14:30:44.782+01:00
+      hippostdpubwf:lastModificationDate: 2021-01-29T14:30:56.577+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 16af47ae-0cce-4e64-a19d-61c33d77dd33
+      hippotranslation:locale: en
+      myproject:introduction: ''
+      myproject:publicationdate: 2021-01-29T14:30:00+01:00
+      myproject:title: About us
+      /myproject:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /about-us[3]:
+      jcr:primaryType: myproject:contentdocument
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9cad5431-ec08-41b2-bd52-c562b89b4a65
+      hippo:availability: [live]
+      hippo:related___pathreference: []
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-01-29T14:30:44.782+01:00
+      hippostdpubwf:lastModificationDate: 2021-01-29T14:30:56.577+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-01-29T14:30:59.549+01:00
+      hippotranslation:id: 16af47ae-0cce-4e64-a19d-61c33d77dd33
+      hippotranslation:locale: en
+      myproject:introduction: ''
+      myproject:publicationdate: 2021-01-29T14:30:00+01:00
+      myproject:title: About us
+      /myproject:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''

@@ -1,0 +1,11 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/myproject/hst:pages/sitemap:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: org.onehippo.forge.sitemapv2.components.StructuredDocumentFeed
+        hst:template: sitemap-structure
+        hst:parameternames: [query-scopes]
+        hst:parametervalues: ['content, news, faq, about']
