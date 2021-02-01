@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/demov12/hst:catalog:
+      jcr:primaryType: hst:catalog
+      /demov12-catalog:
+        jcr:primaryType: hst:containeritempackage

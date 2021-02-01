@@ -1,0 +1,7 @@
+/content/gallery/demov12:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: f4286e97-b7a6-421b-995a-ec81b834682a
+  hippo:name: Sitemap Demo
+  hippostd:foldertype: [new-image-folder]
+  hippostd:gallerytype: ['hippogallery:imageset']

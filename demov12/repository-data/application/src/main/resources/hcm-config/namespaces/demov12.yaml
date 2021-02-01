@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:namespaces/demov12:
+      jcr:primaryType: hipposysedit:namespace
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6914a979-d33d-46d9-a8e1-99d1197faa3b

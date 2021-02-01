@@ -1,0 +1,4 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/demov12/hst:abstractpages:
+      jcr:primaryType: hst:pages

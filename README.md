@@ -8,7 +8,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
 | CMS Version | Plugin Version | Notes  
 |---|---|---|  
 | 12.x | 1.0.3 | backport for hippo cms 12.x
-| 14.x | 2.0.3 | HIPFORGE-391
+| 14.x | 2.0.2 | initial release 
   
 # Installation   
 
@@ -65,7 +65,7 @@ add the following dependency in the `site/components/pom.xml` (`site/pom.xml` mo
     </dependency>
 
   
-add the following dependency in the `site/webapp/pom.xml`  (`cms/pom.xml` for Hippo 12)
+add the following dependency in the `site/webapp/pom.xml`  
 
      <dependency>
        <groupId>org.onehippo.cms7</groupId>    

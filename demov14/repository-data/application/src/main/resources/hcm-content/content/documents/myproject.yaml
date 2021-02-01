@@ -1,9 +1,0 @@
-/content/documents/myproject:
-  .meta:order-before: administration
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:referenceable']
-  jcr:uuid: aead7a90-2417-479c-b458-7f9ebfec3d46
-  hippo:name: My Project
-  hippostd:foldertype: [new-translated-folder, new-document]
-  hippotranslation:id: 996bcac5-86cf-49b5-a7a3-16a74863e814
-  hippotranslation:locale: en
