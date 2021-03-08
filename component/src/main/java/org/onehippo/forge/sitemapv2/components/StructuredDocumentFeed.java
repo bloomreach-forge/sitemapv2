@@ -78,7 +78,7 @@ public class StructuredDocumentFeed extends DocumentFeed {
         SitemapTreeItem<String> rootNode = new SitemapTreeItem<>("root", null);
 
         Pattern pattern;
-        if (request.getRequestContext().isChannelManagerPreviewRequest()) {
+        if (request.getRequestContext().isCmsRequest()) {
             pattern = Pattern.compile("^/site/_cmsinternal/(.*)");
         } else {
             pattern = Pattern.compile("^https://|http://[^/]+/site/?(.*)");
