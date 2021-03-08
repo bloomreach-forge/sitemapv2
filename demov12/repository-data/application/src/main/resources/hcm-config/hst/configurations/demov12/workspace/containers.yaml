@@ -106,3 +106,23 @@ definitions:
           jcr:primaryType: hst:containercomponent
           hst:label: Content Page Main
           hst:xtype: hst.vbox
+      /sitemap:
+        jcr:primaryType: hst:containercomponentfolder
+        /main:
+          jcr:primaryType: hst:containercomponent
+          jcr:uuid: eb7fd17f-8545-4daf-8f06-2ab8483cf9d3
+          hippo:identifier: 736ef342-00bc-4800-bf06-e5512d5bf209
+          hst:label: Home Page Main
+          hst:lastmodified: 2021-03-08T15:56:50.366+01:00
+          hst:xtype: hst.vbox
+          /sitemap-structure:
+            jcr:primaryType: hst:containeritemcomponent
+            jcr:uuid: 1a32af18-f012-4557-8165-cff0dbce7243
+            hst:componentclassname: org.onehippo.forge.sitemapv2.components.StructuredDocumentFeed
+            hst:label: Sitemap Structure
+            hst:parameternames: [query-ofTypes, query-sortOrder, query-scopes, query-exclude-scopes,
+                                 cache-enabled, url-priority, query-notPrimaryTypes, query-offset, url-changeFrequency,
+                                 query-customJcrExpression, query-sortField, query-limit, query-primaryTypes]
+            hst:parametervalues: ['', asc, 'content, news, faq, about', '', 'off', '', 'myproject:faqitem',
+                                  '0', '', '', 'myproject:date', '200', '']
+            hst:template: sitemap-structure
