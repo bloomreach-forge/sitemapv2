@@ -63,7 +63,7 @@ public class QueryUtil {
             hstQueryBuilder.ofTypes(HippoDocument.class);
         }
 
-        if (StringUtils.isEmpty(querySortField)) {
+        if (StringUtils.isNotEmpty(querySortField)) {
             hstQueryBuilder.orderBy(HstQueryBuilder.Order.fromString(querySortOrder), querySortField);
         }
 
