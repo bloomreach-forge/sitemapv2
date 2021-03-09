@@ -37,4 +37,4 @@ definitions:
         hst:renderpath: webfile:/freemarker/hstdefault/contentlist-main-contentlist.ftl
       /sitemap-structure:
         jcr:primaryType: hst:template
-        hst:renderpath: webfile:/freemarker/myproject/sitemap-structure.ftl
+        hst:renderpath: webfile:/freemarker/demov12/sitemap-structure.ftl
