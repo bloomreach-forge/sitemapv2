@@ -25,6 +25,9 @@ import com.google.common.cache.CacheBuilder;
 @ParametersInfo(type = DefaultSitemapFeedInfo.class)
 public class StructuredDocumentFeed extends DocumentFeed {
 
+    public static final String PREVIEW_URL_PATTERN = "^/(site)/(_cmsinternal)/(.*)";
+    public static final String LIVE_URL_PATTERN = "^(https://|http://)[^/]+/(site/)?(.*)";
+
     private static final Logger LOG = LoggerFactory.getLogger(StructuredDocumentFeed.class);
     private Cache<String, SitemapTreeItem<String>> STRUCTURAL_SITEMAP_CACHE;
 
@@ -57,7 +60,7 @@ public class StructuredDocumentFeed extends DocumentFeed {
         request.setAttribute("sitemap", siteMap);
     }
 
-    private SitemapTreeItem<String> retrieveSitemap(final HstRequest request){
+    protected SitemapTreeItem<String> retrieveSitemap(final HstRequest request){
         DefaultSitemapFeedInfo info = getComponentParametersInfo(request);
         if (info.getUseCache()) {
             final String cacheKey = getCacheKey(request);
@@ -67,7 +70,7 @@ public class StructuredDocumentFeed extends DocumentFeed {
         return buildStructuredSiteMap(request);
     }
 
-    private SitemapTreeItem<String> buildStructuredSiteMap(final HstRequest request) {
+    protected SitemapTreeItem<String> buildStructuredSiteMap(final HstRequest request) {
         final DefaultSitemapGenerator generator = (DefaultSitemapGenerator) getSitemapGenerator();
         DefaultSitemapFeedInfo info = getComponentParametersInfo(request);
         getBuilders().forEach(sitemapBuilder -> sitemapBuilder.build(request, info, generator));
@@ -79,9 +82,9 @@ public class StructuredDocumentFeed extends DocumentFeed {
 
         Pattern pattern;
         if (request.getRequestContext().isCmsRequest()) {
-            pattern = Pattern.compile("^/site/_cmsinternal/(.*)");
+            pattern = Pattern.compile(PREVIEW_URL_PATTERN);
         } else {
-            pattern = Pattern.compile("^https://|http://[^/]+/site/?(.*)");
+            pattern = Pattern.compile(LIVE_URL_PATTERN);
         }
 
         urlSet.forEach( url -> transform(pattern, url, rootNode));
@@ -94,10 +97,10 @@ public class StructuredDocumentFeed extends DocumentFeed {
         return rootNode;
     }
 
-    private void transform(final Pattern pattern, final Url url, final SitemapTreeItem<String> rootNode){
+    protected void transform(final Pattern pattern, final Url url, final SitemapTreeItem<String> rootNode){
         Matcher matcher = pattern.matcher(url.getLoc());
         if (matcher.matches()) {
-            String[] pathElements = matcher.group(1).split("/");
+            String[] pathElements = matcher.group(3).split("/");
             SitemapTreeItem<String> currentNode = rootNode;
             SitemapTreeItem<String> nextNode;
             int total = pathElements.length;
