@@ -25,6 +25,7 @@ package org.onehippo.forge.sitemapv2.components.model;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -67,7 +68,7 @@ public class Urlset {
     }
 
     public Urlset(Set<Url> urls) {
-        this.urls = synchronizedSet(new HashSet<>());
+        this.urls = synchronizedSet(new LinkedHashSet<>());
         this.urls.addAll(urls);
     }
 
