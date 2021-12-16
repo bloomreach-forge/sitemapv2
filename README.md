@@ -8,7 +8,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
 | CMS Version | Plugin Version | Notes  
 |---|---|---|  
 | 12.x | 1.0.6 | backport for hippo cms 12.x
-| 14.x | 2.0.6 | ..
+| 14.x | 2.0.7 | ..
   
 # Installation   
 
