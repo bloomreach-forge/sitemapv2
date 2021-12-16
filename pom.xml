@@ -59,7 +59,7 @@
     <hippo.hst.version>14.4.0</hippo.hst.version>
     <hippo.repository.version>14.4.0</hippo.repository.version>
     <hippo.commons.version>14.4.0</hippo.commons.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
     <easymock.version>4.2</easymock.version>
   </properties>
 
