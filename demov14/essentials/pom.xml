@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.example</groupId>
     <artifactId>demov14</artifactId>
-    <version>2.0.7</version>
+    <version>2.0.8-SNAPSHOT</version>
   </parent>
   <artifactId>demov14-essentials</artifactId>
   <packaging>war</packaging>
