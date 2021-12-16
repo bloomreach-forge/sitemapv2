@@ -65,6 +65,7 @@ public class DefaultDocumentNewsSitemapEntriesBuilder implements SitemapEntriesB
                     if (bean.getNode().hasProperty(PUBLICATION_DATE_PROPERTY)) {
                         Calendar lastMod = bean.getSingleProperty(PUBLICATION_DATE_PROPERTY);
                         url.setLastmod(lastMod);
+                        url.setPublicationDate(lastMod);
                     }
 
                     if (bean.getNode().hasProperty(TRANSLATION_PROPERTY_LOCALE)) {
@@ -80,6 +81,11 @@ public class DefaultDocumentNewsSitemapEntriesBuilder implements SitemapEntriesB
                         url.setTitle(title);
                     } else {
                         url.setTitle(bean.getDisplayName());
+                    }
+
+                    if (StringUtils.isNotEmpty(componentInfo.getSortField()) && bean.getNode().hasProperty(componentInfo.getSortField())) {
+                        Calendar lastMod = bean.getSingleProperty(componentInfo.getSortField());
+                        url.setPublicationDate(lastMod);
                     }
                 } catch (RepositoryException e) {
                     log.error("error while trying to retrieve the information from the document while creating news sitemap.xml", e);
