@@ -5,21 +5,21 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>14.4.0</version>
+    <version>15.0.1</version>
   </parent>
 
   <name>DemoV14</name>
   <description>DemoV14</description>
   <groupId>org.example</groupId>
   <artifactId>demov14</artifactId>
-  <version>2.0.8-SNAPSHOT</version>
+  <version>3.0.0</version>
   <packaging>pom</packaging>
 
-  <!-- 
+  <!--
     The below project elements are emptied/overridden as otherwise their metadata would be
     inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
 
-    DO NOT remove these tags but instead fill them in appropriately as needed, 
+    DO NOT remove these tags but instead fill them in appropriately as needed,
     UNLESS the inherited values are valid for your project.
   -->
   <url/>
@@ -63,7 +63,7 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <essentials.version>14.3.3</essentials.version>
+    <essentials.version>15.0.1</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
 
@@ -375,6 +375,33 @@
           </plugin>
         </plugins>
       </build>
+      <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
     </profile>
 
     <profile>
@@ -392,6 +419,31 @@
     <profile>
       <id>dist</id>
       <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>provided</scope>
+        </dependency>
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-slf4j-impl</artifactId>

@@ -1,15 +1,16 @@
 # Sitemap V2
-The sitemap v2 plugin is the successor of the original sitemap plugin https://documentation.bloomreach.com/14/library/concepts/plugins/sitemap/about.html.
+The sitemap v2 plugin is the successor of the original sitemap plugin https://xmdocumentation.bloomreach.com/library/concepts/plugins/sitemap/about.html.
 
 The Sitemap plugin v2 is a delivery tier component that generates an XML feed based on the Sitemap Protocol. This protocol is used by search engines to index your website.
  
 # Release Notes  
   
-| CMS Version | Plugin Version | Notes  
-|---|---|---|  
-| 12.x | 1.0.6 | backport for hippo cms 12.x
-| 14.x | 2.0.7 | ..
-  
+| CMS Version | Plugin Version | Notes                                        |
+|-------------|----------------|----------------------------------------------|
+| 12.x        | 1.0.6          | Backport for Hippo CMS 12.x                  |
+| 14.x        | 2.0.7          | Initial version range                        |
+| 15.x        | 3.0.0          | Build with Java 11, rebuild the demo project |
+
 # Installation   
 
 ## Add the Forge repository configuration
@@ -137,9 +138,9 @@ And each will have the appropriate approach based on the number of pages and amo
  Please note that the channel manager starts to work slow after approximately 400 landing pages within the workspace.    
   
 ### Small website (single channel and local development)     
- | Amount of Pages | Amount of Documents  |      
-|---|---|      
-| 1-100 | 1-200  |      
+| Amount of Pages | Amount of Documents |
+|-----------------|---------------------|
+| 1-100           | 1-200               |
       
 Approach:      
       
@@ -149,9 +150,9 @@ Approach:
 As supplied ootb with plugin installed.    
        
 ### Small to Medium sized websites (per channel)     
- | Amount of Pages | Amount of Documents  |      
-|---|---|      
-| 50-200 | 200-1000  |      
+| Amount of Pages | Amount of Documents |
+|-----------------|---------------------|
+| 50-200          | 200-1000            |
       
 Approach:      
       
@@ -161,9 +162,9 @@ Approach:
     
       
 ### Medium sized websites (per channel)      
- | Amount of Pages | Amount of Documents  |      
-|---|---|      
-| 100-400 | 500-10.000  |      
+| Amount of Pages | Amount of Documents |
+|-----------------|---------------------|
+| 100-400         | 500-10.000          |
       
 Approach:      
     
@@ -177,9 +178,9 @@ Use the sitemap index sitemap item.
   - configure if necessary `sitemap-pages.xml` (used for pages)    
       
 ### Medium to Large sized websites (per channel)      
- | Amount of Pages | Amount of Documents  |      
-|---|---|      
-| 200-1000 | 1000-50.000  |      
+| Amount of Pages | Amount of Documents |
+|-----------------|---------------------|
+| 200-1000        | 1000-50.000         |
     
 Use the sitemap index sitemap item.    
     
@@ -192,9 +193,9 @@ Use the sitemap index sitemap item.
   - configure if necessary `sitemap-pages.xml` (used for pages)    
       
 ### Large websites (per channel)      
- | Amount of Pages | Amount of Documents  |      
-|---|---|      
-| 500-1500 | 50.000-1.000.000  |    
+| Amount of Pages | Amount of Documents |
+|-----------------|---------------------|
+| 500-1500        | 50.000-1.000.000    |
     
 Use the sitemap index sitemap item.    
   
@@ -210,24 +211,24 @@ Use the sitemap index sitemap item.
  The component which are set on the `hst:componentconfigurationid` of the sitemap.xml sitemap items have several available component properties available. Documentation also available: `org.onehippo.forge.sitemapv2.info.DefaultSitemapFeedInfo`    
  Any feed extending `org.onehippo.forge.sitemapv2.components.helper.AbstractSitemapFeed` will have the following properties available:    
     
-| property | use | default |    
-|---|---|---|    
-| query-scopes (since v2.0.1) | define comma separated list of paths relative to site root content path for query scope | site root content path eg. content/documents/myproject
-| query-exclude-scopes (since v2.0.1) | define comma separated list of paths relative to site content path to be excluded from query scope |
-| query-limit  | set a limit on the document feed query, maximum value is 1000  | 200 |    
-| query-offset | set an offset on the document feed query. | 0    
-| query-ofTypes | filter query where subtypes are included. |    
-| query-primaryTypes | filter query where specific primary types are included, but subtypes are ***not*** included |    
-| query-notPrimaryTypes | filter query where specific primary types are not included |    
-| query-customJcrExpression | filter query by adding specific jcr expression. **Note:** be careful that the query is not intensive on the repository    
-| query-sortOrder | Order on how to sort the query | Descending    
-| query-sortField | Field on how to sort the query |    
-| url-changeFrequency | URL priority in the sitemap feed i.e. 0.1, 0.2 ... 0.9 and 1.0 |    
-| url-changeFrequency | URL frequency in the sitemap feed i.e. ALWAYS, HOURLY, DAILY, WEEKLY, MONTHLY, YEARLY, NEVER |    
-| cache-enabled | Enable caching (2nd level) | false    
-| cache-maxSize | Specifies the maximum number of entries the cache may contain. Increase if there are more endpoints and more channels | 1    
-| cache-expireAfterAccessDuration | Specifies that each entry should be automatically removed from the cache once a fixed duration has elapsed after the entry's creation, the most recent replacement of its value, or its last access. | 1    
-| cache-expireAfterAccessTimeUnit | i.e. SECONDS, MINUTES, DAYS, MONTHS.. (See java.util.concurrent.TimeUnit) | DAYS    
+| Property                            | Use                                                                                                                                                                                                  | Default                                                |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| query-scopes (since v2.0.1)         | define comma separated list of paths relative to site root content path for query scope                                                                                                              | site root content path eg. content/documents/myproject |
+| query-exclude-scopes (since v2.0.1) | define comma separated list of paths relative to site content path to be excluded from query scope                                                                                                   |                                                        |
+| query-limit                         | set a limit on the document feed query, maximum value is 1000                                                                                                                                        | 200                                                    |    
+| query-offset                        | set an offset on the document feed query.                                                                                                                                                            | 0                                                      |
+| query-ofTypes                       | filter query where subtypes are included.                                                                                                                                                            |                                                        |
+| query-primaryTypes                  | filter query where specific primary types are included, but subtypes are ***not*** included                                                                                                          |                                                        |
+| query-notPrimaryTypes               | filter query where specific primary types are not included                                                                                                                                           |                                                        |
+| query-customJcrExpression           | filter query by adding specific jcr expression. **Note:** be careful that the query is not intensive on the repository                                                                               |                                                        |
+| query-sortOrder                     | Order on how to sort the query                                                                                                                                                                       | Descending                                             |
+| query-sortField                     | Field on how to sort the query                                                                                                                                                                       |                                                        |
+| url-changeFrequency                 | URL priority in the sitemap feed i.e. 0.1, 0.2 ... 0.9 and 1.0                                                                                                                                       |                                                        |
+| url-changeFrequency                 | URL frequency in the sitemap feed i.e. ALWAYS, HOURLY, DAILY, WEEKLY, MONTHLY, YEARLY, NEVER                                                                                                         |                                                        |
+| cache-enabled                       | Enable caching (2nd level)                                                                                                                                                                           | false                                                  |
+| cache-maxSize                       | Specifies the maximum number of entries the cache may contain. Increase if there are more endpoints and more channels                                                                                | 1                                                      |
+| cache-expireAfterAccessDuration     | Specifies that each entry should be automatically removed from the cache once a fixed duration has elapsed after the entry's creation, the most recent replacement of its value, or its last access. | 1                                                      |
+| cache-expireAfterAccessTimeUnit     | i.e. SECONDS, MINUTES, DAYS, MONTHS.. (See java.util.concurrent.TimeUnit)                                                                                                                            | DAYS                                                   |
     
 **note:** All properties prefixed with "query-" are applicable for the document builder. All other properties all applicable for the document builder and the HstSitemap builder  
     
@@ -274,5 +275,5 @@ In the demo project, in de cms module a content creator `org.example.ContentCrea
   
 # TODO  
   
-- Currently the sitemap-index.xml entries do not incorporate the last modified date. The last modified date is not a required property but still good to have it in there. sitemap.xml, sitemap-pages and sitemap-document-\_default\_.xml do support last modified on each entry  
+- The sitemap-index.xml entries do not incorporate the last modified date. The last modified date is not a required property but still good to have it in there. sitemap.xml, sitemap-pages and sitemap-document-\_default\_.xml do support last modified on each entry  
 - Video and Image sitemap are not completed (yet).

@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.example</groupId>
     <artifactId>demov14-repository-data</artifactId>
-    <version>2.0.8-SNAPSHOT</version>
+    <version>3.0.0</version>
   </parent>
 
-  <name>DemoV14 Repository Data For Site</name>
-  <description>DemoV14 Repository Data For Site</description>
-  <artifactId>demov14-repository-data-site</artifactId>
+  <name>DemoV14 Repository Data For Development</name>
+  <description>DemoV14 Repository Data For Development</description>
+  <artifactId>demov14-repository-data-development</artifactId>
 
   <build>
     <defaultGoal>install</defaultGoal>
