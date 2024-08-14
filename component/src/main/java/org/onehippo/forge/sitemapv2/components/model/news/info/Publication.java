@@ -15,8 +15,8 @@
  */
 package org.onehippo.forge.sitemapv2.components.model.news.info;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * Wrapper class for the "publication" element in the google news sitemap

@@ -8,5 +8,5 @@
 @XmlSchema(namespace = "http://www.google.com/schemas/sitemap-news/0.9", elementFormDefault = XmlNsForm.QUALIFIED)
 package org.onehippo.forge.sitemapv2.components.model.news.info;
 
-import javax.xml.bind.annotation.XmlNsForm;
-import javax.xml.bind.annotation.XmlSchema;
+import jakarta.xml.bind.annotation.XmlNsForm;
+import jakarta.xml.bind.annotation.XmlSchema;
