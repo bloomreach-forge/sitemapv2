@@ -7,8 +7,8 @@
          id="site">
 
 
-  <display-name>DemoV14 site</display-name>
-  <description>DemoV14 site</description>
+  <display-name>site</display-name>
+  <description>site</description>
 
   <jsp-config>
     <jsp-property-group>
