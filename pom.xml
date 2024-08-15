@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2009-2022 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2009-2024 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,22 +13,22 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
-  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>15.0.1</version>
+    <version>16.0.0</version>
   </parent>
 
   <name>Hippo Plugin SitemapV2</name>
   <description>Hippo Plugin SitemapV2</description>
-  <groupId>org.onehippo.cms7</groupId>
   <artifactId>hippo-plugin-sitemapv2</artifactId>
   <packaging>pom</packaging>
-  <version>3.0.0</version>
-
+  <version>4.0.0</version>
   <inceptionYear>2020</inceptionYear>
 
   <scm>
@@ -39,27 +39,23 @@
 
   <distributionManagement>
     <repository>
-      <name>Hippo Maven 2 Forge Repository</name>
-      <id>hippo-maven2-forge</id>
-      <url>https://maven.onehippo.com/content/repositories/forge-releases/</url>
+      <name>Bloomreach Maven 2 Forge Repository</name>
+      <id>bloomreach-maven2-forge</id>
+      <url>https://maven.bloomreach.com/content/repositories/forge-releases/</url>
       <uniqueVersion>false</uniqueVersion>
     </repository>
   </distributionManagement>
 
   <issueManagement>
     <system>Jira</system>
-    <url>https://issues.onehippo.com/browse/HIPFORGE</url>
+    <url>https://issues.onehippo.com/browse/FORGE</url>
   </issueManagement>
 
   <properties>
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Plugin Sitemap V2</notice.project.name>
 
-    <hippo.hst.version>15.0.1</hippo.hst.version>
-    <hippo.repository.version>15.0.1</hippo.repository.version>
-    <hippo.commons.version>15.0.1</hippo.commons.version>
-    <junit.version>4.13.1</junit.version>
-    <easymock.version>4.2</easymock.version>
+    <maven.compiler.release>17</maven.compiler.release>
   </properties>
 
   <dependencyManagement>
@@ -67,28 +63,28 @@
       <dependency>
         <groupId>org.onehippo.cms7.hst</groupId>
         <artifactId>hst-api</artifactId>
-        <version>${hippo.hst.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7.hst</groupId>
         <artifactId>hst-client</artifactId>
-        <version>${hippo.hst.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-cms7-commons</artifactId>
-        <version>${hippo.commons.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <dependency>
         <groupId>org.onehippo.cms7.hst</groupId>
         <artifactId>hst-commons</artifactId>
-        <version>${hippo.commons.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
@@ -110,7 +106,7 @@
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-api</artifactId>
-        <version>${hippo.repository.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
@@ -118,7 +114,7 @@
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-builtin</artifactId>
-        <version>${hippo.repository.version}</version>
+        <version>${hippo.release.version}</version>
         <scope>provided</scope>
       </dependency>
 
@@ -141,9 +137,9 @@
 
   <repositories>
     <repository>
-      <id>hippo</id>
-      <name>Hippo Maven 2</name>
-      <url>https://maven.onehippo.com/maven2/</url>
+      <id>bloomreach-maven2-enterprise</id>
+      <name>Bloomreach Maven 2 Repository</name>
+      <url>https://maven.bloomreach.com/repository/maven2-enterprise/</url>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>

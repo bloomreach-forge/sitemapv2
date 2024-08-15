@@ -10,6 +10,7 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
 | 12.x        | 1.0.6          | Backport for Hippo CMS 12.x                  |
 | 14.x        | 2.0.7          | Initial version range                        |
 | 15.x        | 3.0.0          | Build with Java 11, rebuild the demo project |
+| 16.x        | 4.0.0          | Build with Java 17, rebuild the demo project |
 
 # Installation   
 
@@ -220,7 +221,7 @@ Use the sitemap index sitemap item.
 | query-ofTypes                       | filter query where subtypes are included.                                                                                                                                                            |                                                        |
 | query-primaryTypes                  | filter query where specific primary types are included, but subtypes are ***not*** included                                                                                                          |                                                        |
 | query-notPrimaryTypes               | filter query where specific primary types are not included                                                                                                                                           |                                                        |
-| query-customJcrExpression           | filter query by adding specific jcr expression. **Note:** be careful that the query is not intensive on the repository                                                                               |                                                        |
+| query-customJcrExpression           | append filter query to query-scopes by adding specific jcr expression. Note: be careful that the query is not intensive on the repository                                                                               |                                                        |
 | query-sortOrder                     | Order on how to sort the query                                                                                                                                                                       | Descending                                             |
 | query-sortField                     | Field on how to sort the query                                                                                                                                                                       |                                                        |
 | url-changeFrequency                 | URL priority in the sitemap feed i.e. 0.1, 0.2 ... 0.9 and 1.0                                                                                                                                       |                                                        |
