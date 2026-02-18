@@ -28,7 +28,7 @@
   <description>Hippo Plugin SitemapV2</description>
   <artifactId>hippo-plugin-sitemapv2</artifactId>
   <packaging>pom</packaging>
-  <version>4.0.1-SNAPSHOT</version>
+  <version>4.0.1</version>
   <inceptionYear>2020</inceptionYear>
 
   <scm>
@@ -89,10 +89,12 @@
       </dependency>
 
       <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>${commons-lang3.version}</version>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>${commons-lang.version}</version>
+        <scope>provided</scope>
       </dependency>
+
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
