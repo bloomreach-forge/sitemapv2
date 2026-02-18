@@ -4,12 +4,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import com.google.common.base.Strings;
 import jakarta.servlet.ServletContext;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
-import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -73,7 +73,7 @@ public abstract class AbstractSitemapFeed extends BaseHstComponent {
         if (Boolean.valueOf(info.getUseCache())) {
             final String cacheKey = getCacheKey(request);
             String siteMapXml = SITEMAP_CACHE.getIfPresent(cacheKey);
-            if (StringUtils.isNotEmpty(siteMapXml)) {
+            if (!Strings.isNullOrEmpty(siteMapXml)) {
                 return siteMapXml;
             }
         }

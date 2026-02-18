@@ -9,9 +9,10 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 
-import org.apache.commons.lang.StringUtils;
+
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.configuration.sitemap.HstSiteMap;
@@ -107,10 +108,10 @@ public class DefaultSitemapEntriesBuilder implements SitemapEntriesBuilder<Defau
                     }
                 }
 
-                if (StringUtils.isNotEmpty(componentInfo.getUrlChangeFrequency())) {
+                if (!Strings.isNullOrEmpty(componentInfo.getUrlChangeFrequency())) {
                     url.setChangeFrequency(ChangeFrequency.valueOf(componentInfo.getUrlChangeFrequency()));
                 }
-                if (StringUtils.isNotEmpty(componentInfo.getUrlPriority())) {
+                if (!Strings.isNullOrEmpty(componentInfo.getUrlPriority())) {
                     url.setPriority(new BigDecimal(componentInfo.getUrlPriority()));
                 }
                 return url;
