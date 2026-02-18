@@ -32,11 +32,8 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import jakarta.xml.bind.annotation.XmlType;
-
-import org.apache.commons.lang.time.DateFormatUtils;
-import org.apache.commons.lang.time.FastDateFormat;
-
-
+import org.apache.commons.lang3.time.FastDateFormat;
+import org.apache.commons.lang3.time.DateFormatUtils;
 /**
  * <p>Java class for anonymous complex type.
  * 
@@ -102,7 +99,7 @@ public class Url implements Comparable<Url> {
         if (lastmod == null) {
             return null;
         }
-        FastDateFormat dateFormatter = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT;
+        FastDateFormat dateFormatter = DateFormatUtils.ISO_8601_EXTENDED_DATETIME_TIME_ZONE_FORMAT;
         return dateFormatter.format(lastmod);
     }
 

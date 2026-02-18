@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.FilterException;
@@ -20,9 +19,9 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Strings;
 
-public class QueryUtil {
+public final class QueryUtil {
 
-    private static Logger log = LoggerFactory.getLogger(QueryUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(QueryUtil.class);
 
     private QueryUtil() {
     }
@@ -52,24 +51,24 @@ public class QueryUtil {
                 .limit(queryLimit > limit ? limit : queryLimit)
                 .offset(offset);
 
-        if (StringUtils.isNotEmpty(queryPrimaryTypes)) {
+        if (!Strings.isNullOrEmpty(queryPrimaryTypes)) {
             hstQueryBuilder.ofPrimaryTypes(MatcherUtils.getCommaSeparatedValues(queryPrimaryTypes));
         }
 
-        if (StringUtils.isNotEmpty(queryOffTypes)) {
+        if (!Strings.isNullOrEmpty(queryOffTypes)) {
             hstQueryBuilder.ofTypes(MatcherUtils.getCommaSeparatedValues(queryOffTypes));
-        } else if (StringUtils.isEmpty(queryOffTypes) && StringUtils.isEmpty(queryPrimaryTypes)) {
+        } else if (Strings.isNullOrEmpty(queryPrimaryTypes)) {
             //default set hippo document
             hstQueryBuilder.ofTypes(HippoDocument.class);
         }
 
-        if (StringUtils.isNotEmpty(querySortField)) {
+        if (!Strings.isNullOrEmpty(querySortField)) {
             hstQueryBuilder.orderBy(HstQueryBuilder.Order.fromString(querySortOrder), querySortField);
         }
 
         final HstQuery query = hstQueryBuilder.build();
 
-        if (StringUtils.isNotEmpty(queryNotPrimaryTypes)) {
+        if (!Strings.isNullOrEmpty(queryNotPrimaryTypes)) {
             String[] queryNotPrimaryTypesArray = MatcherUtils.getCommaSeparatedValues(queryNotPrimaryTypes);
             Filter queryFilter = getFilter(query);
             Arrays.stream(queryNotPrimaryTypesArray).forEach(primaryType -> {
@@ -81,7 +80,7 @@ public class QueryUtil {
             });
         }
 
-        if (StringUtils.isNotEmpty(queryCustomJcrExpression)) {
+        if (!Strings.isNullOrEmpty(queryCustomJcrExpression)) {
             Filter queryFilter = getFilter(query);
             queryFilter.addJCRExpression(queryCustomJcrExpression);
         }
@@ -89,7 +88,7 @@ public class QueryUtil {
     }
 
     private static HippoBean[] getBeanScopes(final HstRequestContext context, final String scopes){
-        if(StringUtils.isNotBlank(scopes)) {
+        if(!Strings.isNullOrEmpty(scopes)) {
             final String[] stringScopes = MatcherUtils.getCommaSeparatedValues(scopes);
             final HippoBean siteBean = context.getSiteContentBaseBean();
             List<HippoBean> scopeBeansList = new ArrayList<>();

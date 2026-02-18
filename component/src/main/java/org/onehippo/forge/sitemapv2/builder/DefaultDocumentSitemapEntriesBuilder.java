@@ -1,7 +1,7 @@
 package org.onehippo.forge.sitemapv2.builder;
 
+import com.google.common.base.Strings;
 import com.google.common.collect.Streams;
-import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -73,10 +73,10 @@ public class DefaultDocumentSitemapEntriesBuilder implements SitemapEntriesBuild
                 } catch (RepositoryException e) {
                     log.error("error while trying to retrieve the last publication date of document while creating sitemap.xml", e);
                 }
-                if (StringUtils.isNotEmpty(componentInfo.getUrlChangeFrequency())) {
+                if (!Strings.isNullOrEmpty(componentInfo.getUrlChangeFrequency())) {
                     url.setChangeFrequency(ChangeFrequency.valueOf(componentInfo.getUrlChangeFrequency()));
                 }
-                if (StringUtils.isNotEmpty(componentInfo.getUrlPriority())) {
+                if (!Strings.isNullOrEmpty(componentInfo.getUrlPriority())) {
                     url.setPriority(new BigDecimal(componentInfo.getUrlPriority()));
                 }
                 return url;
