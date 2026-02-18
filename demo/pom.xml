@@ -12,7 +12,7 @@
   <description>DemoV14</description>
   <groupId>org.example</groupId>
   <artifactId>demov14</artifactId>
-  <version>4.0.1</version>
+  <version>4.0.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <!--
