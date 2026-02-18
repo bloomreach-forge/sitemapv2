@@ -28,7 +28,7 @@
   <description>Hippo Plugin SitemapV2</description>
   <artifactId>hippo-plugin-sitemapv2</artifactId>
   <packaging>pom</packaging>
-  <version>4.0.1</version>
+  <version>4.0.3-SNAPSHOT</version>
   <inceptionYear>2020</inceptionYear>
 
   <scm>

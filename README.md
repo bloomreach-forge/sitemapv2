@@ -10,7 +10,8 @@ The Sitemap plugin v2 is a delivery tier component that generates an XML feed ba
 | 12.x        | 1.0.6          | Backport for Hippo CMS 12.x                  |
 | 14.x        | 2.0.7          | Initial version range                        |
 | 15.x        | 3.0.0          | Build with Java 11, rebuild the demo project |
-| 16.x        | 4.0.1          | Build with Java 17, rebuild the demo project |
+| 16.x        | 4.0.0          | Build with Java 17, rebuild the demo project |
+| 16.7.x      | 4.0.2          | 16.7+ versions                               |
 
 # Installation   
 
