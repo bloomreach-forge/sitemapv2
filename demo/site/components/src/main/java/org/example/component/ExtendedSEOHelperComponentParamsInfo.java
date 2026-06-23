@@ -6,7 +6,7 @@ import org.onehippo.forge.seo.support.SEOHelperComponentParamsInfo;
 
 public interface ExtendedSEOHelperComponentParamsInfo extends SEOHelperComponentParamsInfo {
 
-    @Parameter(name = "noindex", required = false, description = "noindex")
+    @Parameter(name = "noindex", required = false)
     Boolean getNoindex();
 
 }
